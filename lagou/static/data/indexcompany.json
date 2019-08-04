@@ -1,77 +1,86 @@
 {
-	
-    "recommend_two": [
-    	{
-    		"cover_url": "http://www.lgstatic.com/thumbnail_160x160/image1/M00/00/47/Cgo8PFTUXOOABWKnAAC8bZIppJo836.jpg",
-    		"companyName": "GMGE中手游",
-    		"type":"移动互联网,游戏/上市公司",
-            "desc": "GMGE中手游-国际领先的移动开发商与发行商",
-            "ping":21,
-            "nowNum":30,
-            "chuli":"62%"
-    	},
-    	{
-    		"cover_url": "http://www.lgstatic.com/thumbnail_160x160/image1/M00/00/47/Cgo8PFTUXOOABWKnAAC8bZIppJo836.jpg",
-    		"companyName": "GMGE中手游",
-    		"type":"移动互联网,游戏/上市公司",
-            "desc": "GMGE中手游-国际领先的移动开发商与发行商",
-            "ping":21,
-            "nowNum":30,
-            "chuli":"62%"
-    	},
-    	{
-    		"cover_url": "http://www.lgstatic.com/thumbnail_160x160/image1/M00/00/47/Cgo8PFTUXOOABWKnAAC8bZIppJo836.jpg",
-    		"companyName": "GMGE中手游",
-    		"type":"移动互联网,游戏/上市公司",
-            "desc": "GMGE中手游-国际领先的移动开发商与发行商",
-            "ping":21,
-            "nowNum":30,
-            "chuli":"62%"
-    	},
-    	{
-    		"cover_url": "http://www.lgstatic.com/thumbnail_160x160/image1/M00/00/47/Cgo8PFTUXOOABWKnAAC8bZIppJo836.jpg",
-    		"companyName": "GMGE中手游",
-    		"type":"移动互联网,游戏/上市公司",
-            "desc": "GMGE中手游-国际领先的移动开发商与发行商",
-            "ping":21,
-            "nowNum":30,
-            "chuli":"62%"
-    	},
-    	{
-    		"cover_url": "http://www.lgstatic.com/thumbnail_160x160/image1/M00/00/47/Cgo8PFTUXOOABWKnAAC8bZIppJo836.jpg",
-    		"companyName": "GMGE中手游",
-    		"type":"移动互联网,游戏/上市公司",
-            "desc": "GMGE中手游-国际领先的移动开发商与发行商",
-            "ping":21,
-            "nowNum":30,
-            "chuli":"62%"
-    	},
-    	{
-    		"cover_url": "http://www.lgstatic.com/thumbnail_160x160/image1/M00/00/47/Cgo8PFTUXOOABWKnAAC8bZIppJo836.jpg",
-    		"companyName": "GMGE中手游",
-    		"type":"移动互联网,游戏/上市公司",
-            "desc": "GMGE中手游-国际领先的移动开发商与发行商",
-            "ping":21,
-            "nowNum":30,
-            "chuli":"62%"
-    	},
-    	{
-    		"cover_url": "http://www.lgstatic.com/thumbnail_160x160/image1/M00/00/47/Cgo8PFTUXOOABWKnAAC8bZIppJo836.jpg",
-    		"companyName": "GMGE中手游",
-    		"type":"移动互联网,游戏/上市公司",
-            "desc": "GMGE中手游-国际领先的移动开发商与发行商",
-            "ping":21,
-            "nowNum":30,
-            "chuli":"62%"
-    	},
-    	{
-    		"cover_url": "http://www.lgstatic.com/thumbnail_160x160/image1/M00/00/47/Cgo8PFTUXOOABWKnAAC8bZIppJo836.jpg",
-    		"companyName": "GMGE中手游",
-    		"type":"移动互联网,游戏/上市公司",
-            "desc": "GMGE中手游-国际领先的移动开发商与发行商",
-            "ping":21,
-            "nowNum":30,
-            "chuli":"62%"
-    	}
-    ]
+
+	"banner_one": [
+		{
+			"coporate_id": "100",
+			"coporate": "微盟",
+			"src": "http://www.lgstatic.com/thumbnail_160x160/i/image/M00/32/FE/Cgp3O1dQFiaAelOPAAF1O_dbrx8557.jpg",
+			"brief": "人性化的管理， 年轻充满活力的团队， 广阔的发展前景",
+			"updateTime": "08/03 ",
+			"interview_comments": 62,
+			"recruit_position": 48,
+			"timeliness": "34%",
+			"desc": "移动互联网/B轮"
+		}, {
+			"coporate_id": 101,
+			"coporate": "蜻蜓FM",
+			"src": "http://www.lgstatic.com/thumbnail_240x240/i/image2/M01/79/0A/CgoB5ltr2A-AM5SFAADbT9jQCn841.jpeg",
+			"brief": "国内一流的IT开发团队，资深的媒体运作团队，轻松活力的工作环境，快速成长的音频…",
+			"updateTime": "08/03 ",
+			"interview_comments": 85,
+			"recruit_position": 6,
+			"timeliness": "100%",
+			"desc": "企业服务,数据服务/C轮"
+		}, {
+			"coporate_id": 102,
+			"coporate": "贝壳",
+			"src": "http://www.lgstatic.com/thumbnail_240x240/i/image2/M01/AC/F7/CgotOVvycNiAAe8OAABhrmY_47k309.png",
+			"brief": "用你的潜能，驱动“住”的无限可能",
+			"updateTime": "08/02 ",
+			"interview_comments": 53,
+			"recruit_position": 18,
+			"timeliness": "87%",
+			"desc": "移动互联网/C轮"
+		}, {
+			"coporate_id": 103,
+			"coporate": "快手",
+			"src": "http://www.lgstatic.com/thumbnail_240x240/i/image2/M00/26/EF/CgoB5lof5AuADFWJAAAK3VU74GU045.png",
+			"brief": "一个记录和分享生活的短视频社交平台",
+			"updateTime": "08/02 ",
+			"interview_comments": 127,
+			"recruit_position": 18,
+			"timeliness": "66%",
+			"desc": "移动互联网/C轮"
+		}, {
+			"coporate_id": 104,
+			"coporate": "陌陌",
+			"src": "http://www.lgstatic.com/thumbnail_240x240/i/image/M00/C3/CB/Cgp3O1jcvUOATXv_AABZ6zpEAKk174.jpg",
+			"brief": "陌陌，让你发现身边志同道合的人。",
+			"updateTime": "08/01 ",
+			"interview_comments": 92,
+			"recruit_position": 30,
+			"timeliness": "88%",
+			"desc": "移动互联网,消费生活/C轮"
+		}, {
+			"coporate_id": 415,
+			"coporate": "去哪儿网",
+			"src": "http://www.lgstatic.com/thumbnail_240x240/image1/M00/00/06/CgYXBlTUWAeANQBuAABHTL1SBa8889.jpg",
+			"brief": "聪明你的旅行",
+			"updateTime": "07/27",
+			"interview_comments": 92,
+			"recruit_position": 49,
+			"timeliness": "50%",
+			"desc": "移动互联网,企业服务/C轮"
+		}, {
+			"coporate_id": 416,
+			"coporate": "有鱼金融科技",
+			"src": "http://www.lgstatic.com/thumbnail_240x240/i/image/M00/61/D3/CgqKkVf8uQeAOqJ2AAArfl5skXY149.png",
+			"brief": "7年老牌互联网公司，有初创团队的狼性，又有雄厚的资金做为后盾保证，快点加入我们…",
+			"updateTime": "07/26",
+			"interview_comments": 24,
+			"recruit_position": 17,
+			"timeliness": "100%",
+			"desc": "电商,其它/上市公司"
+		}, {
+			"coporate_id": 418,
+			"coporate": "今古科技",
+			"src": "http://www.lgstatic.com/thumbnail_240x240/i/image2/M01/90/84/CgotOVujEV-APsXWAABqQG80M0I180.png",
+			"brief": "“享受工作，快乐生活”是今古员工的共同理念。",
+			"updateTime": "07/24",
+			"interview_comments": 209,
+			"recruit_position": 71,
+			"timeliness": "100%",
+			"desc": "移动互联网,金融/B轮"
+		}
+	]
 }

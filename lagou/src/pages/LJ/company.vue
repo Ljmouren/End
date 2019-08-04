@@ -10,24 +10,24 @@
 				<span class="know" @click="change()">我知道了</span>
 			</div>
 			<ul class="company-list">
-				<li v-for="(item,index) in arr">
+				<li :class="current==index?'itemsli shadow':'itemsli'" @mouseenter="over(index)" @mouseleave="out()" v-for="(item,index) in arr">
 					<div class="companyt">
-						<img :src="item.cover_url" />
-						<h3>{{item.companyName}}</h3>
-						<span>{{item.type}}</span>
-						<p>{{item.desc}}</p>
+						<img :src="item.src" />
+						<h3>{{item.coporate}}</h3>
+						<span>{{item.desc}}</span>
+						<p>{{item.brief}}</p>
 					</div>
 					<div class="companyb">
 						<a href="#">
-							<p class="green">{{item.ping}}</p>
+							<p class="green">{{item.interview_comments}}</p>
 							<p class="gray">面试评价</p>
 						</a>
 						<a href="#">
-							<p class="green">{{item.nowNum}}</p>
+							<p class="green">{{item.recruit_position}}</p>
 							<p class="gray">在招职位</p>
 						</a>
 						<a href="#">
-							<p class="green">{{item.chuli}}</p>
+							<p class="green">{{item.timeliness}}</p>
 							<p class="gray">简历处理率</p>
 						</a>
 					</div>
@@ -46,11 +46,13 @@
 			return {
 				isshow: true,
 				arr: [],
-				isS: false
+				isS: false,
+				current: ''
 			}
 		},
 		mounted() {
 			this.company();
+			this.current=-1;
 		},
 		methods: {
 			change() {
@@ -59,7 +61,7 @@
 			company() {
 				this.$axios.get('../../static/data/indexcompany.json').then(res => {
 					console.log(res.data.recommend_two)
-					this.arr = res.data.recommend_two
+					this.arr = res.data.banner_one
 				})
 			},
 			yiru() {
@@ -71,14 +73,22 @@
 			},
 			fn(){
 				this.$router.push('/company')
-
-
+			},
+			over(index) {
+				//console.log(index)
+				this.current = index;
+			},
+			out() {
+				this.current=-1;
 			}
 		}
 	}
 </script>
 
 <style lang="less" scoped>
+.shadow {
+		box-shadow: 0px 0px 1px #ccc;
+	}
 	.a {
 		margin-top: 10px;
 		width: 100%;
@@ -151,13 +161,13 @@
 					width: 80px;
 					height: 80px;
 				}
-				li {
+				.itemsli {
 					box-sizing: border-box;
 					float: left;
-					width: 23.3%;
+					width: 23%;
 					height: 270px;
-					margin-top: 19px;
-					margin-right: 21px;
+					margin: 19px 20px 2px 2px;
+					box-sizing: border-box;
 					border: 1px solid #EEE;
 					.companyt {
 						margin: 0 13px;

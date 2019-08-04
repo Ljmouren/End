@@ -1,96 +1,194 @@
 {
 	
-    "recommend_one": [
+    "recommend_1": [
     	{
     		"title": "智能硬件产品经理",
     		"date":"16:35",
             "wage": "10K-16K",
             "workdate":"3-5年/本科",
-            "type":"智能硬件",
+            "type":["智能硬件"],
             "cover_url": "http://www.lgstatic.com/thumbnail_100x100/i/image3/M00/50/61/CgpOIFr45iCAXPuLAADisihfDmU180.jpg",
             "jobName":"超盟金服",
-            "desc":"移动互联网/A轮/深圳"
+            "desc":"移动互联网/A轮/深圳",
+    		"hasbgurl":"true"
+    	},
+    	{
+    		"title": "业务运营经理",
+    		"date":"18:44",
+            "wage": "10K-15K",
+            "workdate":"经验1年以下/大专",
+            "type":["O2O运营","运营"],
+            "cover_url": "https://www.lgstatic.com/thumbnail_100x100/i/image2/M01/23/F7/CgoB5lzCi_WAVNEwAAA4A516XoU656.png",
+            "jobName":"闪电修",
+            "desc":"移动互联网,消费生活/A轮/深圳"
+    		
+    	},{
+    		"title": "产品经理",
+    		"date":"18:42",
+            "wage": "10K-16K",
+            "workdate":"3-5年/大专",
+            "type":["电商","移动互联网","产品设计"],
+            "cover_url": "https://www.lgstatic.com/thumbnail_100x100/i/image2/M01/F0/91/CgotOVx-JaGAanDMAAA79DSLzV8078.jpg",
+            "jobName":"天呈慧眼云",
+            "desc":"移动互联网/上市公司/成都"
+    		
+    	},{
+    		"title": "视频剪辑师",
+    		"date":"18:42",
+            "wage": "8K-12K",
+            "workdate":"1-3年/大专",
+            "type":["3D","后期","剪辑"],
+            "cover_url": "https://www.lgstatic.com/thumbnail_100x100/image1/M00/00/07/CgYXBlTUWAqAQv6XAAApely0cJ0292.jpg",
+            "jobName":"游道易",
+            "desc":"移动互联网,游戏/B轮/北京"
+    		
+    	},{
+    		"title": "mes工程师",
+    		"date":"18:22",
+            "wage": "10K-20K",
+            "workdate":"1-3年/本科",
+            "type":["电子/半导体","汽车","MySQl"],
+            "cover_url": "https://www.lgstatic.com/thumbnail_100x100/i/image/M00/03/49/CgqKkVazBHuAEi82AAASPk203eU990.jpg",
+            "jobName":"蚂蚁科技",
+            "desc":"电商/未融资/上海"
+    		
+    	},{
+    		"title": "销售",
+    		"date":"18:41",
+            "wage": "8K-15K",
+            "workdate":"一年以下/大专",
+            "type":["保险","代理商"],
+            "cover_url": "https://www.lgstatic.com/thumbnail_100x100/i/image2/M01/DA/9B/CgotOVxlNgWAWWpfAABaqp9XSA4482.png",
+            "jobName":"中国人寿保险股份有限公司杭州分公司",
+            "desc":"金融,企业服务/上市公司/杭州",
+            "hasbgurl":"true"
+    		
+    	},{
+    		"title": "前端开发工程师",
+    		"date":"18:41",
+            "wage": "9K-16K",
+            "workdate":"3-5年/本科",
+            "type":["Node.js","Web前端"],
+            "cover_url": "https://www.lgstatic.com/thumbnail_100x100/i/image/M00/9A/8F/CgqKkVihZ_OARyluAAASog9Z9z8701.png",
+            "jobName":"弘连网络",
+            "desc":"数据服务/未融资/上海"
+    		
+    	},{
+    		"title": "android开发工程师",
+    		"date":"18:39",
+            "wage": "6K-10K",
+            "workdate":"3-5年/本科",
+            "type":["企业服务","移动互联网","移动端"],
+            "cover_url": "https://www.lgstatic.com/thumbnail_100x100/i/image2/M01/63/89/CgoB5l0u6vWAZ7ovAAASm0bUQvY536.jpg",
+            "jobName":"旗博士",
+            "desc":"教育,软件开发/不需要融资/广州"
+    		
+    	},{
+    		"title": "管培生",
+    		"date":"18:39",
+            "wage": "8K-10K",
+            "workdate":"1-3年/本科",
+            "type":["电商","移动互联网","市场"],
+            "cover_url": "https://www.lgstatic.com/thumbnail_100x100/i/image/M00/3E/49/CgpFT1lV5faAL1kDAABj-DhCNUk984.png",
+            "jobName":"易乎社区",
+            "desc":"移动互联网,消费生活/不需要融资/上海"
+    		
+    	}
+    ],
+    "recommend_2": [
+    	{
+    		"title": "算法高级工程师",
+    		"date":"16:35",
+            "wage": "25K-50K",
+            "workdate":"不限/本科",
+            "type":["NLP","算法","搜索"],
+            "cover_url": "http://www.lgstatic.com/thumbnail_100x100/i/image3/M00/50/61/CgpOIFr45iCAXPuLAADisihfDmU180.jpg",
+            "jobName":"虎博科技",
+            "desc":"移动互联网,金融/A轮/上海"
     		
     	},
     	{
-    		"title": "智能硬件产品经理",
-    		"date":"16:35",
-            "wage": "10K-16K",
+    		"title": "产品经理",
+    		"date":"18:44",
+            "wage": "15K-30K",
             "workdate":"3-5年/本科",
-            "type":"智能硬件",
-            "cover_url": "http://www.lgstatic.com/thumbnail_100x100/i/image3/M00/50/61/CgpOIFr45iCAXPuLAADisihfDmU180.jpg",
-            "jobName":"超盟金服",
-            "desc":"移动互联网/A轮/深圳"
+            "type":["产品设计","产品策划","用户研究"],
+            "cover_url": "https://www.lgstatic.com/thumbnail_100x100/i/image2/M01/23/F7/CgoB5lzCi_WAVNEwAAA4A516XoU656.png",
+            "jobName":"TELETRAAN",
+            "desc":"数据服务,企业服务/天使轮/杭州",
+            "hasbgurl":"true"
     		
     	},{
-    		"title": "智能硬件产品经理",
-    		"date":"16:35",
-            "wage": "10K-16K",
+    		"title": "web前端工程师",
+    		"date":"18:42",
+            "wage": "15K-25K",
             "workdate":"3-5年/本科",
-            "type":"智能硬件",
-            "cover_url": "http://www.lgstatic.com/thumbnail_100x100/i/image3/M00/50/61/CgpOIFr45iCAXPuLAADisihfDmU180.jpg",
-            "jobName":"超盟金服",
-            "desc":"移动互联网/A轮/深圳"
+            "type":["电商","前端开发","HTML"],
+            "cover_url": "https://www.lgstatic.com/thumbnail_100x100/i/image2/M01/F0/91/CgotOVx-JaGAanDMAAA79DSLzV8078.jpg",
+            "jobName":"CLPS",
+            "desc":"数据服务,金融/未融资/上海"
     		
     	},{
-    		"title": "智能硬件产品经理",
-    		"date":"16:35",
-            "wage": "10K-16K",
-            "workdate":"3-5年/本科",
-            "type":"智能硬件",
-            "cover_url": "http://www.lgstatic.com/thumbnail_100x100/i/image3/M00/50/61/CgpOIFr45iCAXPuLAADisihfDmU180.jpg",
-            "jobName":"超盟金服",
-            "desc":"移动互联网/A轮/深圳"
+    		"title": "银行渠道经理",
+    		"date":"18:42",
+            "wage": "10K-15K",
+            "workdate":"3-5年/大专",
+            "type":["渠道"],
+            "cover_url": "https://www.lgstatic.com/thumbnail_100x100/image1/M00/00/07/CgYXBlTUWAqAQv6XAAApely0cJ0292.jpg",
+            "jobName":"浙江保融",
+            "desc":"金融/不需要融资/杭州",
+            "hasbgurl":"true"
     		
     	},{
-    		"title": "智能硬件产品经理",
-    		"date":"16:35",
-            "wage": "10K-16K",
-            "workdate":"3-5年/本科",
-            "type":"智能硬件",
-            "cover_url": "http://www.lgstatic.com/thumbnail_100x100/i/image3/M00/50/61/CgpOIFr45iCAXPuLAADisihfDmU180.jpg",
-            "jobName":"超盟金服",
-            "desc":"移动互联网/A轮/深圳"
+    		"title": "新媒体文案编辑",
+    		"date":"18:22",
+            "wage": "8K-12K",
+            "workdate":"不限/本科",
+            "type":["编辑","文案"],
+            "cover_url": "https://www.lgstatic.com/thumbnail_100x100/i/image/M00/03/49/CgqKkVazBHuAEi82AAASPk203eU990.jpg",
+            "jobName":"乔梦",
+            "desc":"电商,移动互联网/未融资/杭州"
     		
     	},{
-    		"title": "智能硬件产品经理",
-    		"date":"16:35",
-            "wage": "10K-16K",
-            "workdate":"3-5年/本科",
-            "type":"智能硬件",
-            "cover_url": "http://www.lgstatic.com/thumbnail_100x100/i/image3/M00/50/61/CgpOIFr45iCAXPuLAADisihfDmU180.jpg",
-            "jobName":"超盟金服",
-            "desc":"移动互联网/A轮/深圳"
+    		"title": "原画组长",
+    		"date":"18:41",
+            "wage": "8K-12K",
+            "workdate":"不限/本科",
+            "type":["游戏","2D","手绘"],
+            "cover_url": "https://www.lgstatic.com/thumbnail_100x100/i/image2/M01/DA/9B/CgotOVxlNgWAWWpfAABaqp9XSA4482.png",
+            "jobName":"光线时代",
+            "desc":"游戏/未融资/北京"
     		
     	},{
-    		"title": "智能硬件产品经理",
-    		"date":"16:35",
-            "wage": "10K-16K",
-            "workdate":"3-5年/本科",
-            "type":"智能硬件",
-            "cover_url": "http://www.lgstatic.com/thumbnail_100x100/i/image3/M00/50/61/CgpOIFr45iCAXPuLAADisihfDmU180.jpg",
-            "jobName":"超盟金服",
-            "desc":"移动互联网/A轮/深圳"
+    		"title": "助理文员",
+    		"date":"18:41",
+            "wage": "5K-7K",
+            "workdate":"3-5年/大专",
+            "type":["广告营销","其它","助理"],
+            "cover_url": "https://www.lgstatic.com/thumbnail_100x100/i/image/M00/9A/8F/CgqKkVihZ_OARyluAAASog9Z9z8701.png",
+            "jobName":"上海欧化文化传播",
+            "desc":"企业服务,广告营销/未融资/上海"
     		
     	},{
-    		"title": "智能硬件产品经理",
-    		"date":"16:35",
-            "wage": "10K-16K",
+    		"title": "前端开发工程师",
+    		"date":"18:39",
+            "wage": "15K-30K",
             "workdate":"3-5年/本科",
-            "type":"智能硬件",
-            "cover_url": "http://www.lgstatic.com/thumbnail_100x100/i/image3/M00/50/61/CgpOIFr45iCAXPuLAADisihfDmU180.jpg",
-            "jobName":"超盟金服",
-            "desc":"移动互联网/A轮/深圳"
+            "type":["年度旅游","管理规范","六险一金"],
+            "cover_url": "https://www.lgstatic.com/thumbnail_100x100/i/image2/M01/63/89/CgoB5l0u6vWAZ7ovAAASm0bUQvY536.jpg",
+            "jobName":"妙健康",
+            "desc":"移动互联网/C轮/北京",
+            "hasbgurl":"true"
     		
     	},{
-    		"title": "智能硬件产品经理",
-    		"date":"16:35",
-            "wage": "10K-16K",
+    		"title": "his产品经理",
+    		"date":"18:39",
+            "wage": "12K-20K",
             "workdate":"3-5年/本科",
-            "type":"智能硬件",
-            "cover_url": "http://www.lgstatic.com/thumbnail_100x100/i/image3/M00/50/61/CgpOIFr45iCAXPuLAADisihfDmU180.jpg",
-            "jobName":"超盟金服",
-            "desc":"移动互联网/A轮/深圳"
+            "type":["医疗健康","大数据","产品设计"],
+            "cover_url": "https://www.lgstatic.com/thumbnail_100x100/i/image/M00/3E/49/CgpFT1lV5faAL1kDAABj-DhCNUk984.png",
+            "jobName":"熙牛医疗",
+            "desc":"信息安全,数据服务/不需要融资/杭州"
     		
     	}
     ]

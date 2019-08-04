@@ -18,6 +18,7 @@
 			<div class="itembox">
 				<ul class="items" v-for="(item,index) in arr" v-show="layout=='hot'" :key="index">
 					<li :class="current==index?'itemsli shadow':'itemsli'" @mouseenter="over(index)" @mouseleave="out()">
+						<div :class="item.hasbgurl?'bgimg no':'no'"></div>
 						<div class="itemt">
 							<p>
 								<span>{{item.title}}</span>
@@ -26,7 +27,7 @@
 								<strong>{{item.wage}}</strong>
 							</p>
 							<p class="jy">经验{{item.workdate}}</p>
-							<a>{{item.type}}</a>
+							<a v-for="(item,index) in item.type">{{item}}</a>
 						</div>
 						<div class="itemb">
 							<img :src="item.cover_url" />
@@ -37,8 +38,9 @@
 						</div>
 					</li>
 				</ul>
-				<ul class="items" v-for="item in arr" v-show="layout=='now'">
+				<ul class="items" v-for="item in arr2" v-show="layout=='now'">
 					<li class="itemsli">
+						<div :class="item.hasbgurl?'bgimg no':'no'"></div>
 						<div class="itemt">
 							<p>
 								<span>{{item.title}}</span>
@@ -47,7 +49,7 @@
 								<strong>{{item.wage}}</strong>
 							</p>
 							<p class="jy">经验{{item.workdate}}</p>
-							<a>{{item.type}}</a>
+							<a v-for="(item,index) in item.type">{{item}}</a>
 						</div>
 						<div class="itemb">
 							<img :src="item.cover_url" />
@@ -71,22 +73,29 @@
 		data() {
 			return {
 				arr: [],
+				arr2:[],
 				isshow: false,
 				isshow1: false,
 				isS: false,
 				layout: 'hot',
 				isS: false,
-				current: ''
+				current: '',
 			}
 		},
 		mounted() {
 			this.itemjob();
+			this.itemjob2();
 			this.current=-1;
 		},
 		methods: {
 			itemjob() {
 				this.$axios.get('../../static/data/indexJob.json').then(res => {
-					this.arr = res.data.recommend_one
+					this.arr = res.data.recommend_1
+				})
+			},
+			itemjob2() {
+				this.$axios.get('../../static/data/indexJob.json').then(res => {
+					this.arr2 = res.data.recommend_2
 				})
 			},
 			change() {
@@ -116,6 +125,17 @@
 </script>
 
 <style lang="less" scoped>
+	.bgimg{
+		background: url(//www.lgstatic.com/www/static/index/modules/job_list/img/direct-recruit@2x_0d49da5.png) no-repeat;
+		background-size: cover;
+	}
+	.no{
+		width: 36px;
+		height: 36px;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
 	.shadow {
 		box-shadow: 0px 0px 1px #ccc;
 	}
@@ -209,6 +229,7 @@
 					background-color: #fff;
 					box-sizing: border-box;
 					margin: 20px 20px 5px 5px;
+					position: relative;
 					.itemt {
 						position: relative;
 						line-height: 30px;
@@ -223,12 +244,20 @@
 							border: 1px solid #F0F0F0;
 							border-radius: 3px;
 							text-align: center;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+							overflow: hidden;
+							margin-right: 3px;
 						}
 						.jy {
 							color: #999;
 						}
 						span {
 							font-size: 16px;
+							width: 100px;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+							overflow: hidden;
 						}
 						i {
 							display: inline-block;
@@ -259,6 +288,11 @@
 							span {
 								display: inline-block;
 								color: #999;
+							}
+							p{
+								text-overflow: ellipsis;
+							white-space: nowrap;
+							overflow: hidden;
 							}
 						}
 						img {
