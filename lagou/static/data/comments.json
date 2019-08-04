@@ -1,0 +1,50 @@
+{
+    "data": [{
+      "avater": "http://www.lgstatic.com/thumbnail_100x100/i/image/M00/64/FC/Cgp3O1gGtESANm26AABJi0A2_mc59.jpeg",
+      "name": "皇*风",
+      "score": 4.0,
+      "jobname": "高级/资深前端工程师",
+      "tags": ["面试效率高"],
+      "useful": 0,
+      "interview_process": "1.先做题 2.技术面试，性能优化比较多 3.没啦，应该没面试上，连人事都没看到",
+      "review_date": "2019-07-18"
+    }, {
+      "avater": "http://www.lgstatic.com/thumbnail_100x100/i/image2/M01/ED/BC/CgotOVx77ryAco2jAABjr02Fa2o966.png",
+      "name": "郭*士",
+      "score": 3.0,
+      "jobname": "数据分析",
+      "tags": ["面试官太苛刻"],
+      "useful": 3,
+      "interview_process": "感觉一般。。。。。。？？？？",
+      "review_date": "2019-07-17"
+    }, {
+      "avater": "http://www.lgstatic.com/thumbnail_100x100/i/image2/M01/24/01/CgotOVzCdtaAQpusAADMgbffW5w82.jpeg",
+      "name": "王*杰",
+      "score": 5.0,
+      "jobname": "Java(NSD)J10026",
+      "tags": ["面试官是大牛", "面试官很nice"],
+      "useful": 4,
+      "interview_process": "面试官很牛，受虐了！",
+      "review_date": "2019-06-21"
+    }, {
+      "avater": "http://www.lgstatic.com/www/static/company-c/modules/reviews-latest/img/avatar_default_25a41f6.png",
+      "name": "周*",
+      "score": 5.0,
+      "jobname": "客服专员",
+      "tags": ["福利待遇杠杠的", "面试官很nice", "环境高大上"],
+      "useful": 1,
+      "interview_process": "整体环境还不错，由于跟自身要求不太一样，所以没有去这家上市企业员工也挺多的，刚踏入职场的，推荐哦",
+      "review_date": "2019-06-18"
+  
+    }, {
+      "avater": "http://www.lgstatic.com/www/static/company-c/modules/reviews-latest/img/avatar_default_25a41f6.png",
+      "name": "李*龙",
+      "score": 5.0,
+      "jobname": "内容运营",
+      "tags": ["环境高大上"],
+      "useful": 5,
+      "interview_process": "感觉自己经验还是缺乏，公司挺好的，面试官很职业，只是被告知要等一周左右才有结果，有点太久了吧？",
+      "review_date": "2019-05-28"
+  
+    }]
+  }

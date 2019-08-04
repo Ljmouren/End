@@ -1,0 +1,230 @@
+{
+    "banner_one": [
+        {
+            "coporate_id": "100",
+            "coporate": "微盟",
+            "src": "http://www.lgstatic.com/thumbnail_160x160/i/image/M00/32/FE/Cgp3O1dQFiaAelOPAAF1O_dbrx8557.jpg",
+            "brief": "人性化的管理， 年轻充满活力的团队， 广阔的发展前景",
+            "updateTime": "08/03 ",
+            "interview_comments": 62,
+            "recruit_position": 48,
+            "timeliness": "34%",
+            "desc": "移动互联网/C轮/150-500人"
+        },
+        {
+            "coporate_id": 101,
+            "coporate": "蜻蜓FM",
+            "src": "http://www.lgstatic.com/thumbnail_240x240/i/image2/M01/79/0A/CgoB5ltr2A-AM5SFAADbT9jQCn841.jpeg",
+            "brief": "国内一流的IT开发团队，资深的媒体运作团队，轻松活力的工作环境，快速成长的音频…",
+            "updateTime": "08/03 ",
+            "interview_comments": 85,
+            "recruit_position": 6,
+            "timeliness": "100%",
+            "desc": "移动互联网/C轮/150-500人"
+        },
+        {
+            "coporate_id": 102,
+            "coporate": "贝壳",
+            "src": "http://www.lgstatic.com/thumbnail_240x240/i/image2/M01/AC/F7/CgotOVvycNiAAe8OAABhrmY_47k309.png",
+            "brief": "用你的潜能，驱动“住”的无限可能",
+            "updateTime": "08/02 ",
+            "interview_comments": 53,
+            "recruit_position": 18,
+            "timeliness": "87%",
+            "desc": "移动互联网/C轮/150-500人"
+        },
+        {
+            "coporate_id": 103,
+            "coporate": "快手",
+            "src": "http://www.lgstatic.com/thumbnail_240x240/i/image2/M00/26/EF/CgoB5lof5AuADFWJAAAK3VU74GU045.png",
+            "brief": "一个记录和分享生活的短视频社交平台",
+            "updateTime": "08/02 ",
+            "interview_comments": 127,
+            "recruit_position": 18,
+            "timeliness": "66%",
+            "desc": "移动互联网/C轮/150-500人"
+        },
+        {
+            "coporate_id": 104,
+            "coporate": "陌陌",
+            "src": "http://www.lgstatic.com/thumbnail_240x240/i/image/M00/C3/CB/Cgp3O1jcvUOATXv_AABZ6zpEAKk174.jpg",
+            "brief": "陌陌，让你发现身边志同道合的人。",
+            "updateTime": "08/01 ",
+            "interview_comments": 92,
+            "recruit_position": 30,
+            "timeliness": "88%",
+            "desc": "移动互联网/C轮/150-500人"
+        }
+    ],
+    "banner_two": [
+        {
+            "coporate_id": 205,
+            "coporate": "欢聚时代（YY Inc）",
+            "src": "http://www.lgstatic.com/thumbnail_240x240/i/image2/M01/B5/75/CgoB5lwJ2fiALGe1AAFBnmxBnn4174.png",
+            "brief": "最酷网络直播公司",
+            "updateTime": "08/01 ",
+            "interview_comments": 169,
+            "recruit_position": 70,
+            "timeliness": "70%",
+            "desc": "移动互联网/C轮/150-500人"
+        },
+        {
+            "coporate_id": 206,
+            "coporate": "搜狗",
+            "src": "http://www.lgstatic.com/thumbnail_240x240/i/image/M00/4C/50/CgpEMllofwqAEKNQAAAs_j5TrEo719.jpg",
+            "brief": "搜狗是中国互联网领先的搜索、输入法、浏览器和其它互联网产品及服务提供商。",
+            "updateTime": "07/31",
+            "interview_comments": 53,
+            "recruit_position": 18,
+            "timeliness": "100%",
+            "desc": "移动互联网/C轮/150-500人"
+        },
+        {
+            "coporate_id": 207,
+            "coporate": "商汤科技",
+            "src": "http://www.lgstatic.com/thumbnail_240x240/i/image2/M00/1B/63/CgotOVoCv-eAPNQcAARRTfkzqqo936.png",
+            "brief": "专注于计算机视觉和深度学习原创技术",
+            "updateTime": "07/31",
+            "interview_comments": 53,
+            "recruit_position": 18,
+            "timeliness": "100%",
+            "desc": "移动互联网/C轮/150-500人"
+        },
+        {
+            "coporate_id": 208,
+            "coporate": "大搜车",
+            "src": "http://www.lgstatic.com/thumbnail_240x240/i/image/M00/48/18/Cgp3O1eRtMCASyPWAAArSkfFNEQ507.jpg",
+            "brief": "中国领先的汽车交易服务供应商。",
+            "updateTime": "07/30",
+            "interview_comments": 53,
+            "recruit_position": 18,
+            "timeliness": "100%",
+            "desc": "移动互联网/C轮/150-500人"
+        },
+        {
+            "coporate_id": 209,
+            "coporate": "有赞",
+            "src": "http://www.lgstatic.com/thumbnail_240x240/i/image2/M01/B1/65/CgotOVv-NQSAaKAEAAAKZL_jrTw555.png",
+            "brief": "我们的愿景是持续作一个Enjoy的组织",
+            "updateTime": "07/30",
+            "interview_comments": 53,
+            "recruit_position": 18,
+            "timeliness": "100%",
+            "desc": "移动互联网/C轮/150-500人"
+        }
+    ],
+    "banner_three": [
+        {
+            "coporate_id": 310,
+            "coporate": "新浪微博",
+            "src": "http://www.lgstatic.com/thumbnail_240x240/image1/M00/00/0D/CgYXBlTUWCCAdkhOAABNgyvZQag818.jpg",
+            "brief": "微博是一个由新浪网推出，提供微型博客服务的类Twitter",
+            "updateTime": "07/29",
+            "interview_comments": 83,
+            "recruit_position": 28,
+            "timeliness": "30%",
+            "desc": "移动互联网/C轮/150-500人"
+        },
+        {
+            "coporate_id": 311,
+            "coporate": "百融云创",
+            "src": "http://www.lgstatic.com/thumbnail_240x240/i/image2/M01/32/52/CgoB5lzdGueAacOGAAC2R7KXAu0992.png",
+            "brief": "金融行业大数据解决方案专家；",
+            "updateTime": "07/29",
+            "interview_comments": 144,
+            "recruit_position": 34,
+            "timeliness": "100%",
+            "desc": "移动互联网/C轮/150-500人"
+        },
+        {
+            "coporate_id": 312,
+            "coporate": "腾讯",
+            "src": "http://www.lgstatic.com/thumbnail_240x240/image1/M00/00/03/CgYXBlTUV_qALGv0AABEuOJDipU378.jpg",
+            "brief": "成为互联网的水和电",
+            "updateTime": "07/28",
+            "interview_comments": 521,
+            "recruit_position": 8,
+            "timeliness": "80%",
+            "desc": "移动互联网/C轮/150-500人"
+        },
+        {
+            "coporate_id": 313,
+            "coporate": "涂鸦智能",
+            "src": "http://www.lgstatic.com/thumbnail_240x240/i/image2/M01/AD/A3/CgoB5lv0DkOAGt79AADYTUNCQgc603.jpg",
+            "brief": "全球化智能平台",
+            "updateTime": "07/28",
+            "interview_comments": 53,
+            "recruit_position": 18,
+            "timeliness": "90%",
+            "desc": "移动互联网/C轮/150-500人"
+        },
+        {
+            "coporate_id": 314,
+            "coporate": "自如网",
+            "src": "http://www.lgstatic.com/thumbnail_240x240/i/image3/M00/06/87/Cgq2xlpgCByAMD8nAACUbQvvrew382.png",
+            "brief": "加入自如，让世界变得不一样~",
+            "updateTime": "07/27",
+            "interview_comments": 18,
+            "recruit_position": 24,
+            "timeliness": "100%",
+            "desc": "移动互联网/C轮/150-500人"
+        }
+    ],
+    "banner_four": [
+        {
+            "coporate_id": 415,
+            "coporate": "去哪儿网",
+            "src": "http://www.lgstatic.com/thumbnail_240x240/image1/M00/00/06/CgYXBlTUWAeANQBuAABHTL1SBa8889.jpg",
+            "brief": "聪明你的旅行",
+            "updateTime": "07/27",
+            "interview_comments": 92,
+            "recruit_position": 49,
+            "timeliness": "50%",
+            "desc": "移动互联网/C轮/150-500人"
+        },
+        {
+            "coporate_id": 416,
+            "coporate": "有鱼金融科技",
+            "src": "http://www.lgstatic.com/thumbnail_240x240/i/image/M00/61/D3/CgqKkVf8uQeAOqJ2AAArfl5skXY149.png",
+            "brief": "7年老牌互联网公司，有初创团队的狼性，又有雄厚的资金做为后盾保证，快点加入我们…",
+            "updateTime": "07/26",
+            "interview_comments": 136,
+            "recruit_position": 34,
+            "timeliness": "97%",
+            "desc": "移动互联网/C轮/150-500人"
+        },
+        {
+            "coporate_id": 417,
+            "coporate": "小米",
+            "src": "http://www.lgstatic.com/thumbnail_240x240/image1/M00/00/03/CgYXBlTUV_uAY85GAAAVtFKXIv8322.jpg",
+            "brief": "有些工作只是工作，有些工作却是你人生的使命， 那些工作会让你满怀热情、全心投入…",
+            "updateTime": "07/25",
+            "interview_comments": 27,
+            "recruit_position": 96,
+            "timeliness": "44%",
+            "desc": "移动互联网/C轮/150-500人"
+        },
+        {
+            "coporate_id": 418,
+            "coporate": "今古科技",
+            "src": "http://www.lgstatic.com/thumbnail_240x240/i/image2/M01/90/84/CgotOVujEV-APsXWAABqQG80M0I180.png",
+            "brief": "“享受工作，快乐生活”是今古员工的共同理念。",
+            "updateTime": "07/24",
+            "interview_comments": 209,
+            "recruit_position": 71,
+            "timeliness": "100%",
+            "desc": "移动互联网/C轮/150-500人"
+        },
+        {
+            "coporate_id": 419,
+            "coporate": "Shopee",
+            "src": "http://www.lgstatic.com/thumbnail_240x240/i/image2/M00/4B/BB/CgoB5lrzrD-AeEyMAACnZEurpKo412.png",
+            "brief": "东南亚与台湾领航电商平台",
+            "updateTime": "07/29",
+            "interview_comments": 84,
+            "recruit_position": 30,
+            "timeliness": "68%",
+            "desc": "移动互联网/C轮/150-500人"
+        }
+    ]
+}
