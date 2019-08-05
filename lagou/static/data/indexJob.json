@@ -9,8 +9,7 @@
             "type":["智能硬件"],
             "cover_url": "http://www.lgstatic.com/thumbnail_100x100/i/image3/M00/50/61/CgpOIFr45iCAXPuLAADisihfDmU180.jpg",
             "jobName":"超盟金服",
-            "desc":"移动互联网/A轮/深圳",
-    		"hasbgurl":"true"
+            "desc":"移动互联网/A轮/深圳"
     	},
     	{
     		"title": "业务运营经理",
@@ -30,7 +29,8 @@
             "type":["电商","移动互联网","产品设计"],
             "cover_url": "https://www.lgstatic.com/thumbnail_100x100/i/image2/M01/F0/91/CgotOVx-JaGAanDMAAA79DSLzV8078.jpg",
             "jobName":"天呈慧眼云",
-            "desc":"移动互联网/上市公司/成都"
+            "desc":"移动互联网/上市公司/成都",
+            "hasbgurl":"true"
     		
     	},{
     		"title": "视频剪辑师",
@@ -40,7 +40,8 @@
             "type":["3D","后期","剪辑"],
             "cover_url": "https://www.lgstatic.com/thumbnail_100x100/image1/M00/00/07/CgYXBlTUWAqAQv6XAAApely0cJ0292.jpg",
             "jobName":"游道易",
-            "desc":"移动互联网,游戏/B轮/北京"
+            "desc":"移动互联网,游戏/B轮/北京",
+            "hasbgurl":"true"
     		
     	},{
     		"title": "mes工程师",

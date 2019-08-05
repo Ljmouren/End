@@ -60,7 +60,6 @@
 			},
 			company() {
 				this.$axios.get('../../static/data/indexcompany.json').then(res => {
-					console.log(res.data.recommend_two)
 					this.arr = res.data.banner_one
 				})
 			},
@@ -69,13 +68,11 @@
 			},
 			yichu() {
 				this.isS = false;
-
 			},
 			fn(){
 				this.$router.push('/company')
 			},
 			over(index) {
-				//console.log(index)
 				this.current = index;
 			},
 			out() {
