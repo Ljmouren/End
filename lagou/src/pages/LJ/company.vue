@@ -10,12 +10,12 @@
 				<span class="know" @click="change()">我知道了</span>
 			</div>
 			<ul class="company-list">
-				<li :class="current==index?'itemsli shadow':'itemsli'" @mouseenter="over(index)" @mouseleave="out()" v-for="(item,index) in arr">
+				<li v-for="(item,index) in arr" v-if='index<8' @click='toDetail(item)'>
 					<div class="companyt">
 						<img :src="item.src" />
 						<h3>{{item.coporate}}</h3>
-						<span>{{item.desc}}</span>
-						<p>{{item.brief}}</p>
+						<span>{{item.type}}</span>
+						<p>{{item.type}}/{{item.finance}}/{{item.scale}}</p>
 					</div>
 					<div class="companyb">
 						<a href="#">
@@ -47,22 +47,32 @@
 				isshow: true,
 				arr: [],
 				isS: false,
-				current: ''
+				currList:[]
 			}
 		},
 		mounted() {
 			this.company();
-			this.current=-1;
 		},
 		methods: {
 			change() {
 				this.isshow = !this.isshow;
 			},
 			company() {
-				this.$axios.get('../../static/data/indexcompany.json').then(res => {
-					this.arr = res.data.banner_one
+				this.$axios.get('../../static/data/company_list.json').then(res => {
+					console.log(res.data)
+					this.arr = res.data
 				})
 			},
+			toDetail(inItem){		
+				this.currList=inItem;
+				//console.log(this.currList);
+				this.$router.push({
+					path:'/company_home',
+					query:{
+					dataObj:this.currList
+			}
+      })
+	},
 			yiru() {
 				this.isS = true;
 			},
@@ -71,21 +81,12 @@
 			},
 			fn(){
 				this.$router.push('/company')
-			},
-			over(index) {
-				this.current = index;
-			},
-			out() {
-				this.current=-1;
 			}
 		}
 	}
 </script>
 
 <style lang="less" scoped>
-.shadow {
-		box-shadow: 0px 0px 1px #ccc;
-	}
 	.a {
 		margin-top: 10px;
 		width: 100%;
@@ -158,13 +159,13 @@
 					width: 80px;
 					height: 80px;
 				}
-				.itemsli {
+				li {
 					box-sizing: border-box;
 					float: left;
-					width: 23%;
+					width: 23.3%;
 					height: 270px;
-					margin: 19px 20px 2px 2px;
-					box-sizing: border-box;
+					margin-top: 19px;
+					margin-right: 21px;
 					border: 1px solid #EEE;
 					.companyt {
 						margin: 0 13px;

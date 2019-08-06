@@ -90,7 +90,7 @@
 			</div>			
 		</item>
 	</div>
-	<c_right></c_right>
+	<c_right :info='itemData'></c_right>
 	</div>
 </template>
 

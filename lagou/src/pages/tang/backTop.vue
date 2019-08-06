@@ -57,7 +57,7 @@
 		width: 28px;
 		height: 46px;
 		position: fixed;
-		left: 54%;
+		right: 5%;
 		bottom: 88px;
 		margin-left: 548px;
 		cursor: pointer;

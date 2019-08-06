@@ -42,14 +42,11 @@
 					<el-tab-pane label="公司主页" name="first">
 						<slot name='first'></slot>
 					</el-tab-pane>
-					<el-tab-pane label="招聘职位（181）" name="second">
+					<el-tab-pane :label="'招聘人数('+itemData.recruit_position+')'" name="second">
 						<slot name='second'></slot>
 					</el-tab-pane>
-					<el-tab-pane label="校招职位（10）" name="third">
+					<el-tab-pane label="公司问答" name="third">
 						<slot name='third'></slot>
-					</el-tab-pane>
-					<el-tab-pane label="公司问答" name="fourth">
-						<slot name='fourth'></slot>
 					</el-tab-pane>
 				</el-tabs>
 
@@ -67,7 +64,7 @@
 	export default {
 		data() {
 			return {
-				activeName: 'first'
+				activeName: 'first',
 			};
 		},
 		props:{

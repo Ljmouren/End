@@ -6,19 +6,19 @@
 				<ul class="basic_info">
 					<li>
 						<i class="el-icon-menu"></i>
-						<span>企业服务</span>
+						<span>{{info.type}}</span>
 					</li>
 					<li>
 						<i class="el-icon-s-marketing"></i>
-						<span>上市公司</span>
+						<span>{{info.finance}}</span>
 					</li>
 					<li>
 						<i class="el-icon-user"></i>
-						<span>2000人以上</span>
+						<span>{{info.scale}}</span>
 					</li>
 					<li>
 						<i class="el-icon-location-outline"></i>
-						<span>上海</span>
+						<span>{{info.city}}</span>
 					</li>
 				</ul>
 			</div>
@@ -120,7 +120,12 @@
 	export default {
 		components: {
 			item,navigator
-		}
+		},
+		props:{
+			info:{
+				type:Object
+			}
+		},
 	}
 </script>
 

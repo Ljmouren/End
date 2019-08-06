@@ -6,12 +6,9 @@
     	<Contents :itemData='dataArr'></Contents>
     </div>
     <div slot='second' class="main">
-    {{$route.query.eleId}}
+   招聘人数
     </div>
     <div slot='third'>
-    	{{dataArr.coporate}}
-    </div>
-    <div slot='fourth'>
     	公司问答
     </div>
     </topH>
@@ -40,6 +37,8 @@ export default {
  mounted(){
    this.getEleId();
    this.getData();
+   this.getList();
+  
  },
  methods:{
    getEleId(){
@@ -95,7 +94,13 @@ export default {
         }
       }
 		})
-   }
+   },
+  getList(){
+    let routerParams=this.$route.query.dataObj;
+    console.log(routerParams);
+    this.dataArr=routerParams;
+  }
+
  }
 }
 </script>

@@ -9,7 +9,10 @@
             "interview_comments": 62,
             "recruit_position": 48,
             "timeliness": "34%",
-            "desc": "移动互联网/C轮/150-500人"
+            "type": "移动互联网",
+            "finance": "C轮",
+            "scale": "150-500人",
+            "city":"上海"
         },
         {
             "coporate_id": 101,
@@ -20,7 +23,10 @@
             "interview_comments": 85,
             "recruit_position": 6,
             "timeliness": "100%",
-            "desc": "移动互联网/C轮/150-500人"
+            "type": "移动互联网",
+            "finance": "C轮",
+            "scale": "150-500人",
+            "city":"上海"
         },
         {
             "coporate_id": 102,
@@ -31,7 +37,10 @@
             "interview_comments": 53,
             "recruit_position": 18,
             "timeliness": "87%",
-            "desc": "移动互联网/C轮/150-500人"
+            "type": "移动互联网",
+            "finance": "C轮",
+            "scale": "150-500人",
+            "city":"上海"
         },
         {
             "coporate_id": 103,
@@ -42,7 +51,10 @@
             "interview_comments": 127,
             "recruit_position": 18,
             "timeliness": "66%",
-            "desc": "移动互联网/C轮/150-500人"
+            "type": "移动互联网",
+            "finance": "C轮",
+            "scale": "150-500人",
+            "city":"上海"
         },
         {
             "coporate_id": 104,
@@ -53,7 +65,10 @@
             "interview_comments": 92,
             "recruit_position": 30,
             "timeliness": "88%",
-            "desc": "移动互联网/C轮/150-500人"
+            "type": "移动互联网",
+            "finance": "C轮",
+            "scale": "150-500人",
+            "city":"上海"
         }
     ],
     "banner_two": [
@@ -66,7 +81,10 @@
             "interview_comments": 169,
             "recruit_position": 70,
             "timeliness": "70%",
-            "desc": "移动互联网/C轮/150-500人"
+            "type": "移动互联网",
+            "finance": "C轮",
+            "scale": "150-500人",
+            "city":"上海"
         },
         {
             "coporate_id": 206,
@@ -77,7 +95,10 @@
             "interview_comments": 53,
             "recruit_position": 18,
             "timeliness": "100%",
-            "desc": "移动互联网/C轮/150-500人"
+            "type": "移动互联网",
+            "finance": "C轮",
+            "scale": "150-500人",
+            "city":"上海"
         },
         {
             "coporate_id": 207,
@@ -88,7 +109,10 @@
             "interview_comments": 53,
             "recruit_position": 18,
             "timeliness": "100%",
-            "desc": "移动互联网/C轮/150-500人"
+            "type": "移动互联网",
+            "finance": "C轮",
+            "scale": "150-500人",
+            "city":"上海"
         },
         {
             "coporate_id": 208,
@@ -99,7 +123,10 @@
             "interview_comments": 53,
             "recruit_position": 18,
             "timeliness": "100%",
-            "desc": "移动互联网/C轮/150-500人"
+            "type": "移动互联网",
+            "finance": "C轮",
+            "scale": "150-500人",
+            "city":"上海"
         },
         {
             "coporate_id": 209,
@@ -110,7 +137,10 @@
             "interview_comments": 53,
             "recruit_position": 18,
             "timeliness": "100%",
-            "desc": "移动互联网/C轮/150-500人"
+            "type": "移动互联网",
+            "finance": "C轮",
+            "scale": "150-500人",
+            "city":"上海"
         }
     ],
     "banner_three": [
@@ -123,7 +153,10 @@
             "interview_comments": 83,
             "recruit_position": 28,
             "timeliness": "30%",
-            "desc": "移动互联网/C轮/150-500人"
+            "type": "移动互联网",
+            "finance": "C轮",
+            "scale": "150-500人",
+            "city":"上海"
         },
         {
             "coporate_id": 311,
@@ -134,7 +167,10 @@
             "interview_comments": 144,
             "recruit_position": 34,
             "timeliness": "100%",
-            "desc": "移动互联网/C轮/150-500人"
+            "type": "移动互联网",
+            "finance": "C轮",
+            "scale": "150-500人",
+            "city":"上海"
         },
         {
             "coporate_id": 312,
@@ -145,7 +181,10 @@
             "interview_comments": 521,
             "recruit_position": 8,
             "timeliness": "80%",
-            "desc": "移动互联网/C轮/150-500人"
+            "type": "移动互联网",
+            "finance": "C轮",
+            "scale": "150-500人",
+            "city":"上海"
         },
         {
             "coporate_id": 313,
@@ -156,7 +195,10 @@
             "interview_comments": 53,
             "recruit_position": 18,
             "timeliness": "90%",
-            "desc": "移动互联网/C轮/150-500人"
+            "type": "移动互联网",
+            "finance": "C轮",
+            "scale": "150-500人",
+            "city":"上海"
         },
         {
             "coporate_id": 314,
@@ -167,7 +209,10 @@
             "interview_comments": 18,
             "recruit_position": 24,
             "timeliness": "100%",
-            "desc": "移动互联网/C轮/150-500人"
+            "type": "移动互联网",
+            "finance": "C轮",
+            "scale": "150-500人",
+            "city":"上海"
         }
     ],
     "banner_four": [
@@ -180,7 +225,10 @@
             "interview_comments": 92,
             "recruit_position": 49,
             "timeliness": "50%",
-            "desc": "移动互联网/C轮/150-500人"
+            "type": "移动互联网",
+            "finance": "C轮",
+            "scale": "150-500人",
+            "city":"上海"
         },
         {
             "coporate_id": 416,
@@ -191,7 +239,10 @@
             "interview_comments": 136,
             "recruit_position": 34,
             "timeliness": "97%",
-            "desc": "移动互联网/C轮/150-500人"
+            "type": "移动互联网",
+            "finance": "C轮",
+            "scale": "150-500人",
+            "city":"上海"
         },
         {
             "coporate_id": 417,
@@ -202,7 +253,10 @@
             "interview_comments": 27,
             "recruit_position": 96,
             "timeliness": "44%",
-            "desc": "移动互联网/C轮/150-500人"
+            "type": "移动互联网",
+            "finance": "C轮",
+            "scale": "150-500人",
+            "city":"上海"
         },
         {
             "coporate_id": 418,
@@ -213,7 +267,10 @@
             "interview_comments": 209,
             "recruit_position": 71,
             "timeliness": "100%",
-            "desc": "移动互联网/C轮/150-500人"
+            "type": "移动互联网",
+            "finance": "C轮",
+            "scale": "150-500人",
+            "city":"上海"
         },
         {
             "coporate_id": 419,
@@ -224,7 +281,10 @@
             "interview_comments": 84,
             "recruit_position": 30,
             "timeliness": "68%",
-            "desc": "移动互联网/C轮/150-500人"
+            "type": "移动互联网",
+            "finance": "C轮",
+            "scale": "150-500人",
+            "city":"上海"
         }
     ]
 }
