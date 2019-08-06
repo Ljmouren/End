@@ -2,7 +2,7 @@
 	<div class="searchwork">
 		<div class="box">
 			<div class="form">
-				<input type="text" placeholder="搜索职位、公司或地点"  @keydown.down="down()" @keydown.up="up()" @input="items" v-model="input1" @blur="isshow=false,clear()" @focus="isshow=true" :class="{foc:isshow}" />
+				<input type="text" placeholder="搜索职位、公司或地点" @keydown.down="down()" @keydown.up="up()" @input="items" v-model="input1" @blur="isshow=false,clear()" @focus="isshow=true" :class="{foc:isshow}" />
 				<button class="search-btn">搜索</button>
 			</div>
 			<ul class="listul" v-for="(item,index) in arrlist">
@@ -31,21 +31,20 @@
 				input1: '',
 				arrlist: [],
 				currIndex: -1,
-				count:0
+				count: 0
 			}
 		},
-		
-		mounted(){
-		},
+
+		mounted() {},
 		methods: {
 			items: function() {
 				this.$axios.get('../../static/data/searchJob.json').then(res => {
 					var content = this.input1;
 					if(content) {
 						this.arrlist = res.data.searchjob.filter((item) => {
-							if(item.title.indexOf(content) != -1||item.jobName.indexOf(content) != -1||item.desc.indexOf(content) != -1) {
+							if(item.title.indexOf(content) != -1 || item.jobName.indexOf(content) != -1 || item.desc.indexOf(content) != -1) {
 								return item
-							} 
+							}
 						})
 					}
 				})
@@ -64,9 +63,9 @@
 				}
 				this.input1 = this.arrlist[this.currIndex].jobName;
 			},
-			clear(){
-				this.arrlist="";
-				this.currIndex=-1;
+			clear() {
+				this.arrlist = "";
+				this.currIndex = -1;
 			}
 		}
 	}
@@ -75,13 +74,13 @@
 <style lang="less" scoped>
 	.listul {
 		width: 937px;
-		padding-left: 71px;
+		margin: 0 auto;
 		text-indent: .8em;
 		border-top: none;
-		
 		li {
 			line-height: 40px;
-			z-index: 999;position: relative;
+			z-index: 999;
+			position: relative;
 			background-color: white;
 			&.active {
 				background-color: #00b38a;

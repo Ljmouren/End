@@ -10,7 +10,7 @@
 				<span class="know" @click="change()">我知道了</span>
 			</div>
 			<ul class="company-list">
-				<li v-for="(item,index) in arr" v-if='index<8' @click='toDetail(item)'>
+				<li v-for="(item,index) in arr" :class="current==index?'shadow itemsli':'itemsli'" @mouseenter="over(index)" @mouseleave="out()" v-if='index<8' @click='toDetail(item)'>
 					<div class="companyt">
 						<img :src="item.src" />
 						<h3>{{item.coporate}}</h3>
@@ -47,11 +47,13 @@
 				isshow: true,
 				arr: [],
 				isS: false,
-				currList:[]
+				currList:[],
+				current:''
 			}
 		},
 		mounted() {
 			this.company();
+			this.current=-1;
 		},
 		methods: {
 			change() {
@@ -70,6 +72,13 @@
 					path:'/company_home',
 					query:{
 					dataObj:this.currList
+			},
+			over(index) {
+				//console.log(index)
+				this.current = index;
+			},
+			out() {
+				this.current=-1;
 			}
       })
 	},
@@ -81,6 +90,13 @@
 			},
 			fn(){
 				this.$router.push('/company')
+			},
+			over(index) {
+				//console.log(index)
+				this.current = index;
+			},
+			out() {
+				this.current=-1;
 			}
 		}
 	}
@@ -110,7 +126,9 @@
 			color: white;
 		}
 	}
-	
+	.shadow {
+		box-shadow: 0px 0px 1px #ccc;
+	}
 	.hot_tips {
 		font-size: 14px;
 		display: flex;
@@ -159,13 +177,12 @@
 					width: 80px;
 					height: 80px;
 				}
-				li {
+				.itemsli {
 					box-sizing: border-box;
 					float: left;
-					width: 23.3%;
+					width: 23%;
 					height: 270px;
-					margin-top: 19px;
-					margin-right: 21px;
+					margin: 19px 21px 1.5px 1.5px;
 					border: 1px solid #EEE;
 					.companyt {
 						margin: 0 13px;
