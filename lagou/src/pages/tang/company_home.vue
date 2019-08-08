@@ -69,7 +69,6 @@
 
 						}
 					}
-
 					if(this.eleId < 300) {
 						let list = res.data.banner_two
 						console.log(list);

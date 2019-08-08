@@ -140,7 +140,7 @@ export default {
   width:80px;
 }
 .company_list .company_item .brief {
-  // height: 10px;
+  height: 10px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

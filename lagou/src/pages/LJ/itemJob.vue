@@ -38,13 +38,13 @@
 						</div>
 					</li>
 				</ul>
-				<ul class="items" v-for="item in arr2" v-show="layout=='now'">
-					<li class="itemsli">
+				<ul class="items" v-for="(item,index) in arr2" v-show="layout=='now'">
+					<li :class="current==index?'itemsli shadow':'itemsli'" @mouseenter="over(index)" @mouseleave="out()">
 						<div :class="item.hasbgurl?'bgimg no':'no'"></div>
 						<div class="itemt">
 							<p>
 								<span>{{item.title}}</span>
-								<em>[{{item.date}}发布]</em>
+								<em>[{{getDate(index)}}发布]</em>
 								<i></i>
 								<strong>{{item.wage}}</strong>
 							</p>
@@ -114,11 +114,14 @@
 				this.$router.push('/jobHome');
 			},
 			over(index) {
-				//console.log(index)
 				this.current = index;
 			},
 			out() {
 				this.current=-1;
+			},
+			getDate(index){
+				var date=new Date();
+				return date.getHours()+":"+(date.getMinutes()-(index-1));
 			}
 		}
 	}
@@ -137,7 +140,7 @@
 		left: 0;
 	}
 	.shadow {
-		box-shadow: 0px 0px 1px #ccc;
+		box-shadow: 0px 0px 12px #eeeeee;
 	}
 	.a {
 		margin-top: 10px;

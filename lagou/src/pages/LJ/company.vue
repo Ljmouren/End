@@ -127,7 +127,7 @@
 		}
 	}
 	.shadow {
-		box-shadow: 0px 0px 1px #ccc;
+		box-shadow: 0px 0px 10px #eeeeee;
 	}
 	.hot_tips {
 		font-size: 14px;
