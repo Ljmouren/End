@@ -1,4 +1,4 @@
-<template>
+ <template>
 	<div class="registerwrap">
 		<div class="header">
 			<div class="lefthead">
@@ -8,7 +8,7 @@
 				<a href="#" class="show" @mouseover='showw'>
 					<i class="fa fa-mobile fa-lg"></i> 拉勾APP
 					<span class="shuxian">|</span>
-					<img class="qrcode_app" src="//www.lgstatic.com/lg-landingpage-fed/pc/images/qrcode-new_69efb8b8.png" v-show="isShow" >
+					<img class="qrcode_app" src="//www.lgstatic.com/lg-landingpage-fed/pc/images/qrcode-new_69efb8b8.png" v-show="isShow">
 				</a>
 				<a @click="goto">
 					去登录 >
@@ -22,8 +22,20 @@
 			<div class="juzhong">
 				<div class="leftmiddle">
 					<div class="search">
-						<span class="glass"></span><button>搜索职位</button>
-						<input type="text" placeholder="搜索“职位”填写一份简历，涨薪59%" v-model="content" />
+						<span class="glass"></span><button @click="itemsli" >搜索职位</button>
+						<input type="text" placeholder="搜索“职位”填写一份简历，涨薪59%" v-model="content"  @input="mohufn" @blur="qingkong"/>
+					</div>
+					<div class="mohusearch" v-show="whriteshow">
+						<ul v-for="(item1,index1) in arr">
+							<li class="mohuli"><span>{{item1.jobName}}</span>
+							      <span>{{item1.title}}</span>
+							        <span>{{item1.desc}}</span>
+							</li>
+						</ul>
+						<ul v-for="(item2,index2) in arr0">
+							<li class="mohuli">{{item2.jobName}}</li>
+						</ul>
+						<i class="el-icon-close" @click="close"></i>
 					</div>
 					<div class="fenlei">
 						<div class="leftfenlei">
@@ -44,13 +56,13 @@
 						<p>
 							<Form>
 								<span slot="phonenum" class="updowm">0086</span>
-						         <input type="text" placeholder="请输入常用手机号" slot="ainput" class="input1-1" v-model="phone" @blur="sendcode" @focus="checkw">
-						          <p class="tishi" slot="tishik1" :class="{xian:tiShi!=''}">{{tiShi}}</p>
-								<input type="password" placeholder="请设置登录密码" slot="binput" class="dierge" v-model="pwd"  @blur="chpw" @focus="checkp">
+								<input type="text" placeholder="请输入常用手机号" slot="ainput" class="input1-1" v-model="phone" @blur="sendcode" @focus="checkw">
+								<p class="tishi" slot="tishik1" :class="{xian:tiShi!=''}">{{tiShi}}</p>
+								<input type="password" placeholder="请设置登录密码" slot="binput" class="dierge" v-model="pwd" @blur="chpw" @focus="checkp">
 								<p class="tishi" slot="tishik2" :class="{xian:tiShi2}">{{tiShi2}}</p>
 							</Form>
 						</p>
-						  <el-button type="text" @click="isD" class="zhuce">立即注册</el-button>
+						<el-button type="text" @click="isD" class="zhuce">立即注册</el-button>
 						<p class="xieyi">注册代表你已同意
 							<a href="#">「拉勾用户协议」</a>
 						</p>
@@ -106,8 +118,7 @@
 				</p>
 			</div>
 		</div>
-		
-		
+
 	</div>
 </template>
 
@@ -117,188 +128,271 @@
 		name: 'HelloWorld',
 		data() {
 			return {
-				stylelist:[
-				{title:'技术'},
-				{title:'产品'},
-				{title:'设计'},
-				{title:'市场'},
-				{title:'运营'},
-				{title:'销售'},
+				stylelist: [{
+						title: '技术'
+					},
+					{
+						title: '产品'
+					},
+					{
+						title: '设计'
+					},
+					{
+						title: '市场'
+					},
+					{
+						title: '运营'
+					},
+					{
+						title: '销售'
+					},
 				],
-				content: '',
-                active:'技术',        // 左侧li点击那个那个高亮
-                isShow:false,    //右上角二维码
-                disabled:false,  // 获取验证码部分
-                time:0,           // 获取验证码部分
-                tiShi:'',         // 获取验证码部分
-                tiShi2:'',
-                phone:'',       // 获取验证码部分
-                imgUrl:[],     //左侧图片渲染
-                indes:0,      //左侧图片渲染
-                pwd:'',     //验证密码部分
-                isGo:false,   //点击注册按钮
-                sendt:false,
-                sendm:false,
-                arr:[]
+				arr: [], //input下拉框
+				arr0:[],
+				content: '', //input下拉框
+				active: '技术', // 左侧li点击那个那个高亮
+				isShow: false, //右上角二维码
+				disabled: false, // 获取验证码部分
+				time: 0, // 获取验证码部分
+				tiShi: '', // 获取验证码部分
+				tiShi2: '',
+				phone: '', // 获取验证码部分
+				imgUrl: [], //左侧图片渲染
+				indes: 0, //左侧图片渲染
+				pwd: '', //验证密码部分
+				isGo: false, //点击注册按钮
+				sendt: false,
+				sendm: false,
+				whriteshow:false
 			}
 		},
 		components: {
 			Form
 		},
-		mounted:function(){
-			this.$axios.get('../../../static/data/yu.json').then(res=>{
-				this.imgUrl=res.data.data0;
-			})	
+		mounted: function() {
+			this.$axios.get('../../../static/data/yu.json').then(res => {
+				this.imgUrl = res.data.data0;
+			})
 		},
+		// input下拉框的显示
 		methods: {
-			// 左侧图片渲染
-			imgload(){
-				this.$axios.get('../../../static/data/yu.json')
+			close(){
+				this.whriteshow=false;
+			},
+			mohufn:function(){
+				this.whriteshow=true;
+				this.$axios.get('../../../static/data/yusearch.json')
 				.then(res=>{
-				    if(this.indes==0){
-				    	this.imgUrl=res.data.data0;
-				    }else if(this.indes==1){
-				    	this.imgUrl=res.data.data1;
-				    }else if(this.indes==2){
-				    	this.imgUrl=res.data.data2;
-				    }else if(this.indes==3){
-				    	this.imgUrl=res.data.data3;
-				    }else if(this.indes==4){
-				    	this.imgUrl=res.data.data4;
-				    }else if(this.indes==5){
-				    	this.imgUrl=res.data.data5;
-				    }
+					var shuruzhi = this.content;
+					if(shuruzhi) {
+							this.arr0 = res.data.searchjob.filter((m) => {
+								if(m.title.indexOf(shuruzhi) != -1 || m.jobName.indexOf(shuruzhi) != -1 || m.desc.indexOf(shuruzhi) != -1) {
+									return m
+								}
+							})
+						}
 				})
-			}	,
-			fn(index){
-				this.indes=index;
+			},
+			itemsli: function() {
+				this.qingkong();
+				this.$axios.get('../../../static/data/yusearch.json')
+					.then(res => {
+						var vvalue = this.content;
+						if(vvalue) {
+							this.arr = res.data.searchjob.filter((v) => {
+								if(v.title.indexOf(vvalue) != -1 || v.jobName.indexOf(vvalue) != -1 || v.desc.indexOf(vvalue) != -1) {
+									return v
+								}
+							})
+						}
+
+					})
+			},
+			// input输入框失去焦点后清空
+			qingkong(){
+				  this.arr0="";
+				  console.log(1);
+			},
+			// 左侧图片渲染
+			imgload() {
+				this.$axios.get('../../../static/data/yu.json')
+					.then(res => {
+						if(this.indes == 0) {
+							this.imgUrl = res.data.data0;
+						} else if(this.indes == 1) {
+							this.imgUrl = res.data.data1;
+						} else if(this.indes == 2) {
+							this.imgUrl = res.data.data2;
+						} else if(this.indes == 3) {
+							this.imgUrl = res.data.data3;
+						} else if(this.indes == 4) {
+							this.imgUrl = res.data.data4;
+						} else if(this.indes == 5) {
+							this.imgUrl = res.data.data5;
+						}
+					})
+			},
+			fn(index) {
+				this.indes = index;
 				this.imgload();
 			},
 			// 验证手机号码部分
 			//..........
-			sendcode(){
-				var reg=11&& /^[1][3,4,5,6,7,8][0-9]{9}$/;
-				if(this.phone==''){
-					this.tiShi="请输入手机号码"
-				}else if(!reg.test(this.phone)){
-					this.tiShi="手机格式不正确"
-				}
-				else{
-					this.tiShi='';
-					this.sendt=true;
+			sendcode() {
+				var reg = 11 && /^[1][3,4,5,6,7,8][0-9]{9}$/;
+				if(this.phone == '') {
+					this.tiShi = "请输入手机号码"
+				} else if(!reg.test(this.phone)) {
+					this.tiShi = "手机格式不正确"
+				} else {
+					this.tiShi = '';
+					this.sendt = true;
 				}
 			},
-			checkp(){
-				  if(this.phone==''){
-				  	this.tiShi="请输入手机号码"
-				  }
+			checkp() {
+				if(this.phone == '') {
+					this.tiShi = "请输入手机号码"
+				}
 			},
-			checkw(){
-				this.tiShi2='';
+			checkw() {
+				this.tiShi2 = '';
 			},
 			// 验证密码部分
-			chpw(){
-				var patrn=/^(\w){6,20}$/;
-				if(this.pwd==''){
-					this.tiShi2="请设置6-16位密码"
+			chpw() {
+				var patrn = /^(\w){6,20}$/;
+				if(this.pwd == '') {
+					this.tiShi2 = "请设置6-16位密码"
+				} else if(!patrn.test(this.pwd)) {
+					this.tiShi2 = "密码必须由字母，数字，特殊字符组成，字母区分大小写"
+				} else {
+					this.tiShi2 = '';
+					this.sendm = true;
 				}
-				else if(!patrn.test(this.pwd)){
-						this.tiShi2="密码必须由字母，数字，特殊字符组成，字母区分大小写"		
-			}else{
-				this.tiShi2='';
-				this.sendm=true;
-			}
-         },
-         isD(){
-         	if(this.sendt&&this.sendm){
-         		this.open();
-         	}else if(this.sendt&& !this.sendm){
-         		this.chpw();
-         	}
-         	else if(!this.sendt&& !this.sendm){
-         		this.chpw();
-         		this.sendcode();
-         	}
-         	else{
-         		this.sendcode();
-         	}
-         },
-         // 点击注册后弹出提示框
-      open() {
-      	
-        this.$confirm('点击确定将跳转到登录页面，是否继续？', '您已成功注册拉勾网', {
-          distinguishCancelAndClose: true,
-          confirmButtonText: '确定',
-          cancelButtonText: '取消'
-        })
-          .then(() => {
-          	this.$router.push('/Login')
-          
-          })
-          .catch(action => {
-            this.$router.push('/Register')
-          });
-      },
+			},
+			isD() {
+				if(this.sendt && this.sendm) {
+					this.open();
+				} else if(this.sendt && !this.sendm) {
+					this.chpw();
+				} else if(!this.sendt && !this.sendm) {
+					this.chpw();
+					this.sendcode();
+				} else {
+					this.sendcode();
+				}
+			},
+			// 点击注册后弹出提示框
+			open() {
+
+				this.$confirm('点击确定将跳转到登录页面，是否继续？', '您已成功注册拉勾网', {
+						distinguishCancelAndClose: true,
+						confirmButtonText: '确定',
+						cancelButtonText: '取消'
+					})
+					.then(() => {
+
+						this.$store.commit('setPhonenum', this.phone);
+						console.log(this.phone);
+						this.$store.commit('setpasswd', this.pwd);
+						console.log(this.pwd);
+						this.$router.push('/Login')
+					})
+					.catch(action => {
+						this.$router.push('/Register')
+					});
+			},
 			goto() {
 				this.$router.push('/Login')
 			},
-			showw(){
-					this.isShow = !this.isShow;
-					},
-					//点击高亮显示
-			selected(title){
-                      this.active = title;
-                     },
-          goshouye(){ 
-          	  this.$router.push('/index')
-          },
-          
+			showw() {
+				this.isShow = !this.isShow;
+			},
+			//点击高亮显示
+			selected(title) {
+				this.active = title;
+			},
+			goshouye() {
+				this.$router.push('/index')
+			},
+
 		},
 	}
 </script>
 
 <style scoped lang="less">
-.hover_img{
-	background:#ccc;
-	opacity:0.7;
-}
-.hover_img:hover{
-	opacity:1;
-}
-input::-webkit-input-placeholder{
-		color: #b5b5b5;
-		font-weight: 400;
-		 
-	}
-	input:-moz-placeholder{
-		color: #b5b5b5;
-		font-weight: 400;
-	}
-	input::-moz-placeholder{
-		color: #b5b5b5;
-		font-weight: 400;
-	}
-	input:-ms-input-placeholder{
-		color: #b5b5b5;
-		font-weight: 400;
-	}
-.xian{
-	border-top:.5px #fd5f39 solid;
+.mohuli{
 	width: 100%;
-	height: 23px;
-	font-size: 12px;
-	color:#fd5f39;
-	padding:8px 0px 0px 0px;
-	display: inline-block;
-}
-.tishi{
-	width: 100%;
-	height: 23px;
-	font-size: 12px;
-	color:#fd5f39;
-	padding:8px 0px 0px 0px;
-	display: inline-block;
+	height: 40px;
+	line-height: 40px;
+	span{
+		width: 33%;
+		padding-left:20px;
 	}
+	display: flex;
+	justify-content: space-between;
+}
+.el-icon-close{
+	position: absolute;
+	right: 20px;
+	bottom: 15px;
+}
+	.mohusearch {
+		position: absolute;
+		z-index: 2;
+		background: #FAFAFA;
+		opacity: 0.9;
+		width: 610px;
+		height: 410px;
+	}
+	
+	.hover_img {
+		background: #ccc;
+		opacity: 0.7;
+	}
+	
+	.hover_img:hover {
+		opacity: 1;
+	}
+	
+	input::-webkit-input-placeholder {
+		color: #b5b5b5;
+		font-weight: 400;
+	}
+	
+	input:-moz-placeholder {
+		color: #b5b5b5;
+		font-weight: 400;
+	}
+	
+	input::-moz-placeholder {
+		color: #b5b5b5;
+		font-weight: 400;
+	}
+	
+	input:-ms-input-placeholder {
+		color: #b5b5b5;
+		font-weight: 400;
+	}
+	
+	.xian {
+		border-top: .5px #fd5f39 solid;
+		width: 100%;
+		height: 23px;
+		font-size: 12px;
+		color: #fd5f39;
+		padding: 8px 0px 0px 0px;
+		display: inline-block;
+	}
+	
+	.tishi {
+		width: 100%;
+		height: 23px;
+		font-size: 12px;
+		color: #fd5f39;
+		padding: 8px 0px 0px 0px;
+		display: inline-block;
+	}
+	
 	* {
 		padding: 0;
 		margin: 0;
@@ -329,16 +423,18 @@ input::-webkit-input-placeholder{
 	.righthead {
 		display: flex;
 	}
-	.righthead a{
+	
+	.righthead a {
 		font-size: 30px;
 	}
+	
 	.shuxian {
 		display: inline-block;
 		padding: 0px 15px 0px 8px;
 		color: gainsboro;
 	}
 	
-	.fa{
+	.fa {
 		padding: 0 5px;
 	}
 	
@@ -458,17 +554,19 @@ input::-webkit-input-placeholder{
 		list-style: none;
 		width: 100px;
 		height: 59px;
-		line-height:59px;
+		line-height: 59px;
 		text-align: center;
 		color: white;
 		font-size: 16px;
 	}
-	.leftfenlei{
+	
+	.leftfenlei {
 		margin-top: 10px;
 		background: #00906f;
-		border-radius:4px;
+		border-radius: 4px;
 		box-sizing: border-box;
 	}
+	
 	.activet {
 		border-radius: 4px;
 		color: #007d61!important;
@@ -481,7 +579,7 @@ input::-webkit-input-placeholder{
 	}
 	
 	.rightfenlei {
-		margin-top:7px;
+		margin-top: 7px;
 		box-sizing: border-box;
 		display: flex;
 		flex-wrap: wrap;
@@ -539,8 +637,8 @@ input::-webkit-input-placeholder{
 		color: #00b38a;
 	}
 	
-		.rightmiddle .input1-1 {
-		text-indent:4.5rem;
+	.rightmiddle .input1-1 {
+		text-indent: 4.5rem;
 		font-weight: lighter;
 		width: 100%;
 		height: 38px;

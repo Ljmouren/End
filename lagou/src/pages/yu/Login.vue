@@ -92,11 +92,21 @@
 				   isRight:false,
 				   isRight1:false,
 				   isRight2:false,
-				   isQ:true
+				   isQ:true,
 			    }	
 		    },
 		components: {
 			Form
+		},
+		computed:{
+			storep:function(){
+				return this.$store.state.phonenum;
+				console.log(this.$store.state.phonenum);
+			},
+			storew:function(){
+				return this.$store.state.passwd
+			},
+			
 		},
 		methods:{
 			goindex(){
@@ -104,7 +114,8 @@
 			},
 			 goshouye(){ 
 			 	if(this.sendt&&this.sendm){	
-          	  		this.$router.push('/index')
+			 		this.$store.commit('stateLogin',true);
+          	  		this.$router.push('/index');
           	 	 }
 			 	else if(this.sendt&& !this.sendm){
          		this.chpw();
@@ -127,6 +138,9 @@
 					this.tiShi="请输入手机号码"
 				}else if(!reg.test(this.phone)){
 					this.tiShi="手机格式不正确"
+				
+				}else if(this.phone!=this.$store.state.phonenum){
+					this.tiShi="该手机尚未注册"
 				}
 				else{
 					this.tiShi='';
@@ -173,11 +187,10 @@
          },
          // 验证密码部分
 			chpw(){
-				var patrn=/^(\w){6,20}$/;
 				if(this.pwd==''){
 					this.tiShi3="密码不能为空！"
 				}
-				else if(!patrn.test(this.pwd)){
+				else if(this.pwd!=this.$store.state.passwd){
 						this.tiShi3="密码不正确"		
 			}else{
 				this.tiShi3='';

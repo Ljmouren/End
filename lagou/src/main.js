@@ -7,6 +7,7 @@ import App from './App'
 import router from './router'
 import Axios from 'axios'
 import BaiDuMap from 'vue-baidu-map'
+import {store} from './store/store.js'
 import StarRating from 'vue-star-rating'
 
 import $ from 'jquery'
@@ -24,5 +25,6 @@ new Vue({
   el: '#app',
   router,
   components: { App },
+  store,
   template: '<App/>'
 })

@@ -61,7 +61,7 @@
 			},
 			company() {
 				this.$axios.get('../../static/data/company_list.json').then(res => {
-					console.log(res.data)
+					//console.log(res.data)
 					this.arr = res.data
 				})
 			},
