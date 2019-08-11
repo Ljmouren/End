@@ -56,8 +56,6 @@
 		computed: {
 			fn: function() {
 				this.isLogin = this.$store.state.isLogin
-				//console.log(this.$store.state.phonenum)
-				//console.log(this.$store.state.isLogin)
 			}
 		}
 	}

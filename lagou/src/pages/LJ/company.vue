@@ -43,62 +43,59 @@
 <script>
 	export default {
 		data() {
-			return {
-				isshow: true,
-				arr: [],
-				isS: false,
-				currList:[],
-				current:''
+				return {
+					isshow: true,
+					arr: [],
+					isS: false,
+					currList: [],
+					current: ''
+				}
+			},
+			mounted() {
+				this.company();
+				this.current = -1;
+			},
+			methods: {
+				change() {
+					this.isshow = !this.isshow;
+				},
+				company() {
+					this.$axios.get('../../static/data/company_list.json').then(res => {
+						//console.log(res.data)
+						this.arr = res.data
+					})
+				},
+				toDetail(inItem) {
+					this.currList = inItem;
+					this.$router.push({
+						path: '/company_home',
+						query: {
+							dataObj: this.currList
+						},
+						over(index) {
+							this.current = index;
+						},
+						out() {
+							this.current = -1;
+						}
+					})
+				},
+				yiru() {
+					this.isS = true;
+				},
+				yichu() {
+					this.isS = false;
+				},
+				fn() {
+					this.$router.push('/company')
+				},
+				over(index) {
+					this.current = index;
+				},
+				out() {
+					this.current = -1;
+				}
 			}
-		},
-		mounted() {
-			this.company();
-			this.current=-1;
-		},
-		methods: {
-			change() {
-				this.isshow = !this.isshow;
-			},
-			company() {
-				this.$axios.get('../../static/data/company_list.json').then(res => {
-					//console.log(res.data)
-					this.arr = res.data
-				})
-			},
-			toDetail(inItem){		
-				this.currList=inItem;
-				//console.log(this.currList);
-				this.$router.push({
-					path:'/company_home',
-					query:{
-					dataObj:this.currList
-			},
-			over(index) {
-				//console.log(index)
-				this.current = index;
-			},
-			out() {
-				this.current=-1;
-			}
-      })
-	},
-			yiru() {
-				this.isS = true;
-			},
-			yichu() {
-				this.isS = false;
-			},
-			fn(){
-				this.$router.push('/company')
-			},
-			over(index) {
-				//console.log(index)
-				this.current = index;
-			},
-			out() {
-				this.current=-1;
-			}
-		}
 	}
 </script>
 
@@ -126,9 +123,11 @@
 			color: white;
 		}
 	}
+	
 	.shadow {
 		box-shadow: 0px 0px 10px #eeeeee;
 	}
+	
 	.hot_tips {
 		font-size: 14px;
 		display: flex;
@@ -164,6 +163,7 @@
 			font-size: 16px;
 		}
 	}
+	
 	.companybox {
 		width: 87%;
 		margin: 0px auto 0;

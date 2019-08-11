@@ -22,7 +22,14 @@
 						   		<li>6、能够独立完成迭代产品的硬件设计，有海思芯片硬件设计量产经验；</li>
 						   		<li>7、有汽车电子行业经验优先。</li>
 						   		<li><h3>工作地址</h3></li>
-						   		<li class="dizhi"><span>深圳</span><span>-</span><span>南山区</span><span>-</span><span>前海</span><span>-</span><span>南海大道创意大厦</span><a @click="chakanMap">查看地图</a></li>
+						   		
+						   		<li class="dizhi">
+						   			<slot name="dizhia"></slot>
+						   			
+						   			
+						   			<a @click="chakanMap">查看地图</a>
+						   		</li>
+						   		
 						   		<li class="ditu">
 						   			 <baidu-map class="map" v-show="xian" :center="center" :zoom="zoom" @ready="handler"></baidu-map>
 						   		</li>
@@ -89,10 +96,7 @@
 					<div class="zhong-right">
 						<div class="zhong-2">
 							<div class="zhong-2-1">
-								<p class="p1"><img class="tu-1" src="//www.lgstatic.com/thumbnail_160x160/i/image/M00/9A/8F/CgqKkVihZ_OARyluAAASog9Z9z8701.png"/><a class="kai">开易科技</a>
-									<span class="tu-2">	<i class="fa fa-get-pocket fa-lg"></i></span>
-								
-							</p>
+						      <slot name="tutu"></slot>
 							    <p><i class="fa fa-qrcode fa-lg"></i> 数据服务,其他</p>
 							    <p><i class="fa fa-line-chart fa-lg"></i> A轮</p>
 							    <p><i class="fa fa-user-o fa-lg"></i>  50-150人</p>

@@ -3,7 +3,7 @@
 		<!--导航条-->
 		<nav class="public-nav">
 			<div class="left-positi">
-				<a href="#" class="company"><span class="company-logo"></span></a>
+				<a @click="goshouye()" class="company"><span class="company-logo"></span></a>
 				<!--<span class="address">全国站</span><a href="#" class="city login">[切换城市]</a>-->
 			</div>
 			<ul class="nav-ul">
@@ -16,8 +16,8 @@
 				<router-link to='/resume' class="login">简历</router-link>
 				<router-link to='/dropbox' class="login">投递箱</router-link>
 				<router-link to='/favorites' class="login">收藏夹</router-link>
-				<a href="#" class="login" @mouseenter="changeArrow('arrow-up')" @mouseleave="changeleave('arrow-down')">
-					用户名
+				<a class="login" @mouseenter="changeArrow('arrow-up')" @mouseleave="changeleave('arrow-down')">
+					<span class="userName">{{userName}}</span>
 					<i class="el-icon-caret-bottom" :class="arrow"></i>
 					<ul class="drop-down" v-show="dropsurr">
 						<li class="show">我的订阅</li>
@@ -29,7 +29,7 @@
 					</ul>
 				</a>
 			</div>
-			<span href="#" class="app green"><span class="app-log"><i class="el-icon-mobile-phone"></i></span>拉勾APP</span>
+			<span class="app green"><span class="app-log"><i class="el-icon-mobile-phone"></i></span>拉勾APP</span>
 			<a href="#" class="version login">进入企业版</a>
 		</nav>
 	</div>
@@ -37,7 +37,7 @@
 <script>
 	export default {
 		name: 'HelloWorld',
-		inject:['reload'],
+		inject: ['reload'],
 		data() {
 			return {
 				arr: [{
@@ -54,7 +54,16 @@
 				mark: 0,
 				flag: '',
 				arrow: "",
-				dropsurr: false
+				dropsurr: false,
+				userName: '用户名'
+			}
+		},
+		mounted() {
+			if(this.$route.path == "/company") {
+				this.flag = 1
+			}
+			if(this.$store.state.isLogin == true && this.$store.state.phonenum != '') {
+				this.userName = '拉勾用户' + this.$store.state.phonenum.toString().substring(7, 11);
 			}
 		},
 		methods: {
@@ -63,7 +72,6 @@
 				this.dropsurr = true;
 			},
 			changeleave(value) {
-
 				this.arrow = value;
 				this.dropsurr = false;
 			},
@@ -72,13 +80,16 @@
 				if(index == '0') {
 					this.$router.push('/index')
 				} else if(index == '1') {
-					this.$router.push('/jobHome')
+					this.$router.push('/company')
 				}
 			},
 			tuichu: function() {
 				this.$store.commit('stateLogin', false);
 				this.reload()
-			}
+			},
+			goshouye() {
+				this.$router.push('/index')
+			},
 		},
 		computed: {
 
@@ -88,6 +99,10 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+	.top {
+		font-size: 14px;
+	}
+	
 	a {
 		list-style-type: none;
 		text-decoration: none;
@@ -115,14 +130,14 @@
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-		left: 15%;
+		left: 110px;
 	}
 	
 	.public-nav .address {
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-		left: 20%;
+		left: 140px;
 		color: #0dca9f;
 	}
 	
@@ -130,7 +145,7 @@
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-		left: 24%;
+		left: 200px;
 		color: #afb5c0;
 	}
 	
@@ -138,7 +153,7 @@
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-		left: 22%;
+		left: 215px;
 	}
 	
 	.public-nav .nav-ul li {
@@ -168,14 +183,14 @@
 	
 	.public-nav .register {
 		position: absolute;
-		right: 29%;
+		right: 430px;
 		top: 50%;
 		text-align: center;
 		transform: translateY(-50%);
 	}
 	
 	.public-nav .register a {
-		margin-left: 10px;
+		margin-left: 15px;
 	}
 	
 	.public-nav .register .register-log {
@@ -189,12 +204,11 @@
 		left: -20px;
 		transform: translateY(-50%);
 	}
-	
 	.public-nav .app {
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-		right: 23%;
+		right: 300px;
 		color: #0dca9f;
 	}
 	
@@ -208,12 +222,16 @@
 		top: 50%;
 		transform: translateY(-50%);
 	}
-	
+	.public-nav .app .app-log i{
+		font-size: 16px;
+		margin-top: 2px;
+		margin-left: 4px;
+	}
 	.public-nav .version {
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-		right: 16.5%;
+		right: 200px;
 		color: #afb5c0;
 	}
 	

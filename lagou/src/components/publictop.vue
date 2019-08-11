@@ -139,7 +139,6 @@ a {
   transform: translateY(-50%);
 }
 .public-nav .register a {
- 
   margin-left: 10px;
 }
 .public-nav .register .register-log {
@@ -152,6 +151,9 @@ a {
   top: 50%;
   left: -20px;
   transform: translateY(-50%);
+  &:hover{
+  	color:white !important;
+  }
 }
 .public-nav .app {
   position: absolute;

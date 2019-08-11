@@ -211,7 +211,6 @@
 			// input输入框失去焦点后清空
 			qingkong(){
 				  this.arr0="";
-				  console.log(1);
 			},
 			// 左侧图片渲染
 			imgload() {
@@ -292,9 +291,7 @@
 					.then(() => {
 
 						this.$store.commit('setPhonenum', this.phone);
-						console.log(this.phone);
 						this.$store.commit('setpasswd', this.pwd);
-						console.log(this.pwd);
 						this.$router.push('/Login')
 					})
 					.catch(action => {

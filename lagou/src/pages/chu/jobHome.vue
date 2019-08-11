@@ -1,8 +1,8 @@
 <template>
 	<div class="jobHome">
 
-		<publictop></publictop>
-
+		<publictop v-show='!isLogin'></publictop>
+		<logintop v-show='isLogin'></logintop>
 		<div class="header1">
 			<div class="header1-1">
 				<p><span class="zhiwei">职位 (500+)</span><span class="gongsi">公司 (0)</span></p>
@@ -49,7 +49,7 @@
 
 					<div class="left" slot="left">
 						<p>
-							<router-link to="/xiangqing">{{item.title}} [{{item.address}}]</router-link><span>{{item.date}}发布</span></p>
+							<a @click='toDetail(item)'>{{item.title}} [{{item.address}}]</a><span>{{item.date}}发布</span></p>
 						<p><span>{{item.wage}}</span><span>{{item.workdate}}</span></p>
 						<p><span>{{item.tag}}</span></p>
 
@@ -122,7 +122,7 @@
 <script>
 	import filtrate from './filtrate'
 	import jobList from '../../components/jobList'
-
+	import logintop from '../../components/loginPublictop'
 	import publictop from '../../components/publictop'
 	import publicfooter from '../../components/publicfooter'
 	export default {
@@ -133,33 +133,54 @@
 				active: -1,
 				currentPage: 1,
 				pageSize: 7,
-				msg:"", 
-
+				msg: "",
+				isLogin: false,
+				detailObj: []
 			}
 		},
 		components: {
 			jobList,
 			publictop,
 			publicfooter,
-			filtrate
+			filtrate,
+			logintop
 		},
 		mounted() {
 			this.getJobDate();
-			//	  this.getListDate();
-
+			this.fn
+		},
+		created() {
+			this.menu();
 		},
 		computed: {
 			nowjobArr() {
 				return this.jobArr.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize) || [];
+			},
+			fn: function() {
+				this.isLogin = this.$store.state.isLogin
+					//console.log(this.$store.state.phonenum)
+					//console.log(this.$store.state.isLogin)
 			}
 		},
 		methods: {
+			menu() {
+				window.scrollTo(0, 0);
+			},
 			getJobDate() {
 				this.$axios.get("../../../static/data/chuJob.json").then(res => {
-					console.log(res.data.recommend_one);
 					this.jobArr = res.data.recommend_one
 				})
 			},
+				toDetail(item) {
+				this.detailObj=item;
+				console.log(1111,this.detailObj);
+				this.$router.push({
+					path: '/xiangqing',
+					query: {
+						dataObj:this.detailObj
+					}
+				})
+			}
 
 		}
 	}
@@ -225,19 +246,19 @@
 		height: 42px;
 		text-indent: 10px;
 		border: none;
-		
 	}
-	.header1-1 input:focus{
+	
+	.header1-1 input:focus {
 		outline: 1px solid #00b38a;
 	}
+	
 	.header1-1 button {
 		width: 100px;
 		height: 40px;
 		border: none;
 		background: #00b38a;
 		color: white;
-		outline:none;
-		
+		outline: none;
 	}
 	
 	.glyphicon-search {

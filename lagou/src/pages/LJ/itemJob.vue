@@ -17,7 +17,7 @@
 			</div>
 			<div class="itembox">
 				<ul class="items" v-for="(item,index) in arr" v-show="layout=='hot'" :key="index">
-					<li :class="current==index?'itemsli shadow':'itemsli'" @mouseenter="over(index)" @mouseleave="out()">
+					<li :class="current==index?'itemsli shadow':'itemsli'" v-if='index<9' @mouseenter="over(index)" @mouseleave="out()">
 						<div :class="item.hasbgurl?'bgimg no':'no'"></div>
 						<div class="itemt">
 							<p>
@@ -39,7 +39,7 @@
 					</li>
 				</ul>
 				<ul class="items" v-for="(item,index) in arr2" v-show="layout=='now'">
-					<li :class="current==index?'itemsli shadow':'itemsli'" @mouseenter="over(index)" @mouseleave="out()">
+					<li :class="current==index?'itemsli shadow':'itemsli'" v-if='index>16' @mouseenter="over(index)" @mouseleave="out()">
 						<div :class="item.hasbgurl?'bgimg no':'no'"></div>
 						<div class="itemt">
 							<p>
@@ -77,8 +77,8 @@
 				isshow: false,
 				isshow1: false,
 				isS: false,
-				layout: 'hot',
 				isS: false,
+				layout: 'hot',
 				current: '',
 			}
 		},
@@ -89,13 +89,13 @@
 		},
 		methods: {
 			itemjob() {
-				this.$axios.get('../../static/data/indexJob.json').then(res => {
-					this.arr = res.data.recommend_1
+				this.$axios.get('../../static/data/chuJob.json').then(res => {
+					this.arr = res.data.recommend_one
 				})
 			},
 			itemjob2() {
-				this.$axios.get('../../static/data/indexJob.json').then(res => {
-					this.arr2 = res.data.recommend_2
+				this.$axios.get('../../static/data/chuJob.json').then(res => {
+					this.arr2 = res.data.recommend_one
 				})
 			},
 			change() {
@@ -121,7 +121,7 @@
 			},
 			getDate(index){
 				var date=new Date();
-				return date.getHours()+":"+(date.getMinutes()-(index-1));
+				return date.getHours()+":"+(date.getMinutes()-index+16);
 			}
 		}
 	}

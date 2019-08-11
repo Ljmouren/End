@@ -1,6 +1,7 @@
 <template>
 	<div>
-		<publictop></publictop>
+		<publictop v-show='!isLogin'></publictop>
+		<logintop v-show='isLogin'></logintop>
 		<topH :itemData='dataArr'>
 			<div slot='first'>
 				<Contents :itemData='dataArr'></Contents>
@@ -24,6 +25,7 @@
 	import publicfooter from '../../components/publicfooter'
 	import c_right from './c_right'
 	import backtop from './backTop'
+	import logintop from '../../components/loginPublictop'
 	export default {
 		components: {
 			publictop,
@@ -31,22 +33,29 @@
 			topH,
 			Contents,
 			c_right,
-			backtop
+			backtop,
+			logintop
 		},
 		data() {
 			return {
 				eleId: 100,
-				dataArr: {}
+				dataArr: {},
+				isLogin: false
 			}
 		},
-		created(){
+		computed: {
+			fn: function() {
+				this.isLogin = this.$store.state.isLogin
+			}
+		},
+		created() {
 			this.menu();
 		},
 		mounted() {
 			this.getEleId();
 			this.getData();
 			this.getList();
-
+			this.fn
 		},
 		methods: {
 			menu() {
@@ -60,7 +69,6 @@
 				then(res => {
 					if(this.eleId < 200) {
 						let list = res.data.banner_one
-						console.log(list);
 						for(let i = 0; i < list.length; i++) {
 							if(this.eleId == list[i].coporate_id) {
 								this.dataArr = list[i];
@@ -71,7 +79,6 @@
 					}
 					if(this.eleId < 300) {
 						let list = res.data.banner_two
-						console.log(list);
 						for(let i = 0; i < list.length; i++) {
 							if(this.eleId == list[i].coporate_id) {
 								this.dataArr = list[i];
@@ -83,7 +90,6 @@
 
 					if(this.eleId < 400) {
 						let list = res.data.banner_three
-						console.log(list);
 						for(let i = 0; i < list.length; i++) {
 							if(this.eleId == list[i].coporate_id) {
 								this.dataArr = list[i];
@@ -94,7 +100,6 @@
 					}
 					if(this.eleId < 500) {
 						let list = res.data.banner_four
-						console.log(list);
 						for(let i = 0; i < list.length; i++) {
 							if(this.eleId == list[i].coporate_id) {
 								this.dataArr = list[i];
@@ -107,7 +112,6 @@
 			},
 			getList() {
 				let routerParams = this.$route.query.dataObj;
-				console.log(routerParams);
 				this.dataArr = routerParams;
 			}
 

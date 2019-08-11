@@ -61,7 +61,6 @@ export default {
   methods: {
     getCompanyDate(){
       this.$axios.get('../../static/data/company_list.json').then(res => {
-      console.log(res.data);
       this.clistArr = res.data;
   })
     }
