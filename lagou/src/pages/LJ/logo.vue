@@ -7,13 +7,7 @@
 				<input type="text" placeholder="输入手机号" v-model="tel" @blur="pan()"/>
 				<p v-if="show1"><img src="../../assets/icon_85a17fe.png" />请输入手机号</p>
 				<p v-if="show2"><img src="../../assets/icon_85a17fe.png" />请输入正确手机号</p>
-				<p v-if="show3"><img src="../../assets/icon_85a17fe.png" />请输入手机号&nbsp;|&nbsp;请输入验证码</p>
 			</div>
-			<div class="from-yzm">
-				<input type="text" placeholder="验证码" v-model="num"/>
-				<div class="yz-btn" @click="obt">获取</div>
-			</div>
-
 			<div class="login-btn" @click="login">
 				登录/注册
 			</div>
@@ -97,7 +91,7 @@
 			float: right;
 			.from-tel {
 				position: absolute;
-				right: 390px;
+				right: 215px;
 				top: 50%;
 				transform: translateY(-50%);
 				p {
@@ -138,7 +132,7 @@
 					border-left: 1px solid #ccc;
 				}
 				input {
-					width: 94px;
+					width: 163px;
 					height: 35px;
 					text-indent: 6px;
 					border: none;

@@ -39,7 +39,17 @@ export default {
 	mounted(){
 		if(this.$route.path=="/company"){
 			this.flag=1
-		}
+		}if(this.$route.path == "/xiangqing") {
+				this.flag = -1
+			}if(this.$route.path == "/company_home") {
+				this.flag = -1
+			}if(this.$route.path == "/favorites") {
+				this.flag = -1
+			}if(this.$route.path == "/dropbox") {
+				this.flag = -1
+			}if(this.$route.path == "/resume") {
+				this.flag = -1
+			}
 	},
 	methods:{
 		fn(index){

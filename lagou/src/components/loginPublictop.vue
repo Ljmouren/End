@@ -12,7 +12,7 @@
 				</li>
 			</ul>
 			<div href="#" class="register">
-				<a href="news.html" class="login">消息</a>
+				<a class="login">消息</a>
 				<router-link to='/resume' class="login">简历</router-link>
 				<router-link to='/dropbox' class="login">投递箱</router-link>
 				<router-link to='/favorites' class="login">收藏夹</router-link>
@@ -61,8 +61,17 @@
 		mounted() {
 			if(this.$route.path == "/company") {
 				this.flag = 1
-			}
-			if(this.$store.state.isLogin == true && this.$store.state.phonenum != '') {
+			}if(this.$route.path == "/xiangqing") {
+				this.flag = -1
+			}if(this.$route.path == "/company_home") {
+				this.flag = -1
+			}if(this.$route.path == "/favorites") {
+				this.flag = -1
+			}if(this.$route.path == "/dropbox") {
+				this.flag = -1
+			}if(this.$route.path == "/resume") {
+				this.flag = -1
+			}if(this.$store.state.isLogin == true && this.$store.state.phonenum != '') {
 				this.userName = '拉勾用户' + this.$store.state.phonenum.toString().substring(7, 11);
 			}
 		},

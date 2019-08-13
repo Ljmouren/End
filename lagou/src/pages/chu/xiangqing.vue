@@ -3,13 +3,12 @@
 		<publictop v-show='!isLogin'></publictop>
 		<logintop v-show='isLogin'></logintop>
 		<!-------------------吸顶---------------------->
-			<div  id="boxFixed" :class="{'is_fixed' : isFixed}" v-show="isFixed">
+		<div id="boxFixed" :class="{'is_fixed' : isFixed}" v-show="isFixed">
 			<div class="ding">
-				<p class="ding-job">{{detailArr.title}}/ <span> 15k-25k</span></p>
+				<p class="ding-job">{{detailArr.title}}/ <span>{{detailArr.wage}}</span></p>
 				<div class="tou-2">
 					<div class="tou-2-1">
-						<p  @click="shoucang()"><i class="fa fa-star-o fa-lg"></i> <span>收藏</span></p>
-						
+						<p @click="shoucang()"><i class="fa fa-star-o fa-lg"></i> <span>收藏</span></p>
 
 					</div>
 					<div class="tou-2-2">
@@ -33,8 +32,8 @@
 					</div>
 					<div class="tou-2">
 						<div class="tou-2-1">
-						<p v-show="isshoucangShow" @click="shoucang()"><i class="fa fa-star-o fa-lg"></i> <span>收藏</span></p>
-						<p v-show="!isshoucangShow" @click="shoucang2()"><i class="fa fa-star fa-lg"></i> <span>已收藏</span></p>
+							<p v-show="isshoucangShow" @click="shoucang()"><i class="fa fa-star-o fa-lg"></i> <span>收藏</span></p>
+							<p v-show="!isshoucangShow" @click="shoucang2()"><i class="fa fa-star fa-lg"></i> <span>已收藏</span></p>
 							<p><i class="fa fa-address-card-o fa-lg"></i> 完善在线简历</p>
 						</div>
 						<div class="tou-2-2">
@@ -48,11 +47,12 @@
 		</div>
 		<xiangMiddle>
 			<p class="p1" slot="tutu">
-					<img class="tu-1" :src="detailArr.cover_url"/><a class="kai">{{detailArr.jobName}}</a>
-					<span class="tu-2">	<i class="fa fa-get-pocket fa-lg"></i></span>
-				</p>
-				
-				<i slot="dizhia"><span>{{detailArr.address}}</span><span>-</span><span></span><span>-</span><span></span><span>-</span><span>{{detailArr.type}}</span></i>
+				<img class="tu-1" :src="detailArr.cover_url" />
+				<a class="kai">{{detailArr.jobName}}</a>
+				<span class="tu-2">	<i class="fa fa-get-pocket fa-lg"></i></span>
+			</p>
+
+			<i slot="dizhia"><span>{{detailArr.address}}</span><span>-</span><span></span><span>-</span><span></span><span>-</span><span>{{detailArr.type}}</span></i>
 		</xiangMiddle>
 
 		<div class="huojiankuang" v-show="isshow" @click="change" :class="{up:ischange}"></div>
@@ -77,8 +77,8 @@
 				isshow: false,
 				ischange: false,
 				isLogin: false,
-				isshoucangShow:true,
-				detailArr:{}
+				isshoucangShow: true,
+				detailArr: {}
 			}
 		},
 		components: {
@@ -95,103 +95,114 @@
 			window.addEventListener('scroll', this.hujianScroll)
 			this.fn
 		},
-
 		computed: {
 			fn: function() {
 				this.isLogin = this.$store.state.isLogin
 			}
 		},
+		created() {
+			this.menu();
+		},
+		destroyed() {
+			window.removeEventListener('scroll', this.handleScroll)
+		},
 		methods: {
-            shoucang(){
-				localStorage.setItem('DetailData',this.detailArr);
-				this.isshoucangShow=false;
-			},
-			shoucang2(){
-				this.isshoucangShow=true;
-				
-			},
-			
-			open() {
-				localStorage.setItem('DetailData1',this.detailArr);
-		        const h = this.$createElement;
-		        this.$msgbox({
-		          title: '投递简历确认',
-		          message: h('p', null, [
-		            h('span', null, '学历、工作年限与该职位要求不匹配，确认要投递吗？ '),
-		            h('i', { style: 'color: teal' }, )
-		          ]),
-		          showCancelButton: true,
-		          confirmButtonText: '确定投递',
-		          cancelButtonText: '放弃投递',
-		          beforeClose: (action, instance, done) => {
-		            if (action === 'confirm') {
-		              instance.confirmButtonLoading = true;
-//		              instance.confirmButtonText = '执行中...';
-		              setTimeout(() => {
-		                done();
-		                setTimeout(() => {
-		                  instance.confirmButtonLoading = false;
-		                }, 100);
-		              }, 1000);
-		            } else {
-		              done();
-		            }
-		          }
-		        }).then(action => {
-		          this.$message({
-		            type: 'info',
-		            message: 'action: ' + action
-		          });
-		        });
-		      },
-				
-			
-			
-			getDetailData(){
-				this.detailArr = this.$route.query.dataObj;
-				
-				console.log("------------------");
-				console.log(this.$route.query.dataObj);
-				console.log(this.detailArr)
-			},
-			handleScroll() {
-				let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop // 滚动条偏移量
-				let offsetTop = document.querySelector('#boxFixed').offsetTop; // 要滚动到顶部吸附的元素的偏移量
-				this.isFixed = scrollTop > offsetTop ? true : false; // 如果滚动到顶部了，this.isFixed就为true
-
-			},
-
-			change() {
-				let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop // 滚动条偏移量
-				this.ischange = true;
-				const that = this;
-				let timer = setInterval(function() {
-					let ispeed = Math.floor(-that.scrollTop / 4);
-					document.documentElement.scrollTop = document.body.scrollTop = that.scrollTop + ispeed;
-					if(that.scrollTop === 0) {
-						clearInterval(timer)
+			shoucang() {
+				if(!this.$store.state.isLogin == true) {
+					this.$alert('未登录,请先登录或注册', '提示', {
+						confirmButtonText: '确定',
+						callback: action => {
+							this.$message({
+								type: 'error',
+								message: ``
+							});
+						}
+					});
+				}
+			else {
+				localStorage.setItem('DetailData', this.detailArr);
+				this.isshoucangShow = false;
+			}
+		},
+		shoucang2() {
+			this.isshoucangShow = true;
+		},
+		open() {
+			localStorage.setItem('DetailData1', this.detailArr);
+			const h = this.$createElement;
+			this.$msgbox({
+				title: '投递简历确认',
+				message: h('p', null, [
+					h('span', null, '学历、工作年限与该职位要求不匹配，确认要投递吗？ '),
+					h('i', {
+						style: 'color: teal'
+					}, )
+				]),
+				showCancelButton: true,
+				confirmButtonText: '确定投递',
+				cancelButtonText: '放弃投递',
+				beforeClose: (action, instance, done) => {
+					if(action === 'confirm') {
+						instance.confirmButtonLoading = true;
+						//		              instance.confirmButtonText = '执行中...';
+						setTimeout(() => {
+							done();
+							setTimeout(() => {
+								instance.confirmButtonLoading = false;
+							}, 100);
+						}, 1000);
+					} else {
+						done();
 					}
-				}, 10);
+				}
+			}).then(action => {
+				this.$message({
+					type: 'info',
+					message: 'action: ' + action
+				});
+			});
+		},
+		menu() {
+			window.scrollTo(0, 0);
+		},
 
-				if(scrollTop === 0) {
-					this.isshow = false;
+		getDetailData() {
+			this.detailArr = this.$route.query.dataObj;
+		},
+		handleScroll() {
+			var scrollTopa = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop // 滚动条偏移量
+			var offsetTopa = document.querySelector('#boxFixed').offsetTop; // 要滚动到顶部吸附的元素的偏移量
+			this.isFixed = scrollTopa > offsetTopa ? true : false; // 如果滚动到顶部了，this.isFixed就为true
+		},
+		change() {
+			let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop // 滚动条偏移量
+			this.ischange = true;
+			const that = this;
+			let timer = setInterval(function() {
+				let ispeed = Math.floor(-that.scrollTop / 4);
+				document.documentElement.scrollTop = document.body.scrollTop = that.scrollTop + ispeed;
+				if(that.scrollTop === 0) {
+					clearInterval(timer)
 				}
-			},
-			hujianScroll() {
-				const that = this;
-				let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-				that.scrollTop = scrollTop
-				if(that.scrollTop > 60) {
-					that.isshow = true;
-				} else {
-					that.isshow = false
-
-				}
-				if(that.scrollTop == 0) {
-					this.ischange = false;
-				}
-			},
-		}
+			}, 10);
+			if(scrollTop === 0) {
+				this.isshow = false;
+			}
+		},
+		hujianScroll() {
+			const that = this;
+			let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+			that.scrollTop = scrollTop
+			if(that.scrollTop > 60) {
+				that.isshow = true;
+			} else {
+				that.isshow = false
+			}
+			if(that.scrollTop == 0) {
+				this.ischange = false;
+			}
+		},
+	}
 	}
 </script>
 
@@ -251,6 +262,7 @@
 		margin-bottom: 10px;
 		box-sizing: border-box;
 	}
+	
 	.tou-2-1 p:nth-of-type(2) {
 		border: 1px solid #00b38a;
 		color: #00b38a;
@@ -259,7 +271,8 @@
 		border-radius: 5px;
 		margin-bottom: 10px;
 	}
-	.tou-2-1 p:nth-of-type(2) .fa-star{
+	
+	.tou-2-1 p:nth-of-type(2) .fa-star {
 		color: gold;
 	}
 	
@@ -295,6 +308,7 @@
 		background-position-x: -37px;
 	}
 	/*-----------------详情---------------*/
+	
 	.toubu {
 		background: #f2f5f4;
 	}
@@ -395,10 +409,11 @@
 		text-align: center;
 	}
 	
-	.el-message-box__title{
+	.el-message-box__title {
 		background-color: red;
 	}
-	.el-message-box__btns button:nth-child(2){
-			background-color: red!important;
+	
+	.el-message-box__btns button:nth-child(2) {
+		background-color: red!important;
 	}
 </style>

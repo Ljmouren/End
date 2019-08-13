@@ -1,4 +1,4 @@
- <template>
+<template>
 	<div class="registerwrap">
 		<div class="header">
 			<div class="lefthead">
@@ -21,34 +21,8 @@
 			</div>
 			<div class="juzhong">
 				<div class="leftmiddle">
-					<div class="search">
-						<span class="glass"></span><button @click="itemsli" >搜索职位</button>
-						<input type="text" placeholder="搜索“职位”填写一份简历，涨薪59%" v-model="content"  @input="mohufn" @blur="qingkong"/>
-					</div>
-					<div class="mohusearch" v-show="whriteshow">
-						<ul v-for="(item1,index1) in arr">
-							<li class="mohuli"><span>{{item1.jobName}}</span>
-							      <span>{{item1.title}}</span>
-							        <span>{{item1.desc}}</span>
-							</li>
-						</ul>
-						<ul v-for="(item2,index2) in arr0">
-							<li class="mohuli">{{item2.jobName}}</li>
-						</ul>
-						<i class="el-icon-close" @click="close"></i>
-					</div>
-					<div class="fenlei">
-						<div class="leftfenlei">
-							<ul v-for="(item,index) in stylelist" @click="fn(index)">
-								<li :class="{activet:active==item.title}" @click="selected(item.title)">{{item.title}}</li>
-							</ul>
-						</div>
-						<div class="rightfenlei">
-							<div v-for="(item,index) in imgUrl">
-								<img :src="item.url" class="hover_img">
-							</div>
-						</div>
-					</div>
+					<reSearch></reSearch>
+					<reimgUrl></reimgUrl>
 				</div>
 				<div class="rightmiddle">
 					<p class="mid-title"><span class="green">8秒</span>注册 轻松获高薪</p>
@@ -74,167 +48,40 @@
 					</div>
 				</div>
 			</div>
+			
 		</div>
-		<div class="footer">
-			<ul class="footerlist">
-				<li>
-					<img src="//www.lgstatic.com/lg-landingpage-fed/pc/images/icon1_37bdd49e.png">
-					<div>
-						<p class="foottitle">极速入职</p>
-						<p class="footcontent">最快24小时拿到企业offer</p>
-					</div>
-				</li>
-				<li>
-					<img src="//www.lgstatic.com/lg-landingpage-fed/pc/images/icon2_e42a2c4a.png">
-					<div>
-						<p class="foottitle">隐私保护</p>
-						<p class="footcontent">安全私密快速投简历</p>
-					</div>
-				</li>
-				<li>
-					<img src="//www.lgstatic.com/lg-landingpage-fed/pc/images/icon3_c6a75262.png">
-					<div>
-						<p class="foottitle">薪资透明</p>
-						<p class="footcontent">薪资透明真实谢绝面议</p>
-					</div>
-				</li>
-				<li>
-					<img src="//www.lgstatic.com/lg-landingpage-fed/pc/images/icon4_85c5b151.png">
-					<div>
-						<p class="foottitle">海量信息</p>
-						<p class="footcontent">海量互联网职位实时更新</p>
-					</div>
-				</li>
-			</ul>
-			<div class="footbottom">
-				<div class="footimg">
-					<img src="//www.lgstatic.com/lg-landingpage-fed/pc/images/logo-footer_521e1f40.png">
-				</div>
-				<p class="footbottom-info">
-					<span>&copy;拉勾网 京ICP备14023790号-2</span><span class="footerline"></span>
-					<span>京公网安备 11010802024043号</span><span class="footerline"></span>
-					<span>违法和不良信息举报电话：4006 2828 35 (9:00 -18:00)</span><span class="footerline"></span>
-					<span>举报邮箱：cc@lagou.com</span>
-				</p>
-			</div>
-		</div>
-
-	</div>
+		<refoot></refoot>
+    </div>     
 </template>
 
 <script>
 	import Form from '../../components/Form'
+	import refoot from '../../components/refoot'
+	import reimgUrl from '../../components/reimgUrl'
+	import reSearch from '../../components/reSearch'
 	export default {
 		name: 'HelloWorld',
 		data() {
 			return {
-				stylelist: [{
-						title: '技术'
-					},
-					{
-						title: '产品'
-					},
-					{
-						title: '设计'
-					},
-					{
-						title: '市场'
-					},
-					{
-						title: '运营'
-					},
-					{
-						title: '销售'
-					},
-				],
-				arr: [], //input下拉框
-				arr0:[],
-				content: '', //input下拉框
-				active: '技术', // 左侧li点击那个那个高亮
 				isShow: false, //右上角二维码
 				disabled: false, // 获取验证码部分
 				time: 0, // 获取验证码部分
 				tiShi: '', // 获取验证码部分
 				tiShi2: '',
 				phone: '', // 获取验证码部分
-				imgUrl: [], //左侧图片渲染
-				indes: 0, //左侧图片渲染
 				pwd: '', //验证密码部分
 				isGo: false, //点击注册按钮
 				sendt: false,
 				sendm: false,
-				whriteshow:false
 			}
 		},
 		components: {
-			Form
+			Form,
+			reSearch,
+			reimgUrl,
+			refoot
 		},
-		mounted: function() {
-			this.$axios.get('../../../static/data/yu.json').then(res => {
-				this.imgUrl = res.data.data0;
-			})
-		},
-		// input下拉框的显示
 		methods: {
-			close(){
-				this.whriteshow=false;
-			},
-			mohufn:function(){
-				this.whriteshow=true;
-				this.$axios.get('../../../static/data/yusearch.json')
-				.then(res=>{
-					var shuruzhi = this.content;
-					if(shuruzhi) {
-							this.arr0 = res.data.searchjob.filter((m) => {
-								if(m.title.indexOf(shuruzhi) != -1 || m.jobName.indexOf(shuruzhi) != -1 || m.desc.indexOf(shuruzhi) != -1) {
-									return m
-								}
-							})
-						}
-				})
-			},
-			itemsli: function() {
-				this.qingkong();
-				this.$axios.get('../../../static/data/yusearch.json')
-					.then(res => {
-						var vvalue = this.content;
-						if(vvalue) {
-							this.arr = res.data.searchjob.filter((v) => {
-								if(v.title.indexOf(vvalue) != -1 || v.jobName.indexOf(vvalue) != -1 || v.desc.indexOf(vvalue) != -1) {
-									return v
-								}
-							})
-						}
-
-					})
-			},
-			// input输入框失去焦点后清空
-			qingkong(){
-				  this.arr0="";
-			},
-			// 左侧图片渲染
-			imgload() {
-				this.$axios.get('../../../static/data/yu.json')
-					.then(res => {
-						if(this.indes == 0) {
-							this.imgUrl = res.data.data0;
-						} else if(this.indes == 1) {
-							this.imgUrl = res.data.data1;
-						} else if(this.indes == 2) {
-							this.imgUrl = res.data.data2;
-						} else if(this.indes == 3) {
-							this.imgUrl = res.data.data3;
-						} else if(this.indes == 4) {
-							this.imgUrl = res.data.data4;
-						} else if(this.indes == 5) {
-							this.imgUrl = res.data.data5;
-						}
-					})
-			},
-			fn(index) {
-				this.indes = index;
-				this.imgload();
-			},
 			// 验证手机号码部分
 			//..........
 			sendcode() {
@@ -291,7 +138,9 @@
 					.then(() => {
 
 						this.$store.commit('setPhonenum', this.phone);
+						console.log(this.phone);
 						this.$store.commit('setpasswd', this.pwd);
+						console.log(this.pwd);
 						this.$router.push('/Login')
 					})
 					.catch(action => {
@@ -305,9 +154,6 @@
 				this.isShow = !this.isShow;
 			},
 			//点击高亮显示
-			selected(title) {
-				this.active = title;
-			},
 			goshouye() {
 				this.$router.push('/index')
 			},
@@ -315,62 +161,23 @@
 		},
 	}
 </script>
-
 <style scoped lang="less">
-.mohuli{
-	width: 100%;
-	height: 40px;
-	line-height: 40px;
-	span{
-		width: 33%;
-		padding-left:20px;
-	}
-	display: flex;
-	justify-content: space-between;
-}
-.el-icon-close{
-	position: absolute;
-	right: 20px;
-	bottom: 15px;
-}
-	.mohusearch {
-		position: absolute;
-		z-index: 2;
-		background: #FAFAFA;
-		opacity: 0.9;
-		width: 610px;
-		height: 410px;
-	}
-	
-	.hover_img {
-		background: #ccc;
-		opacity: 0.7;
-	}
-	
-	.hover_img:hover {
-		opacity: 1;
-	}
-	
 	input::-webkit-input-placeholder {
 		color: #b5b5b5;
 		font-weight: 400;
 	}
-	
 	input:-moz-placeholder {
 		color: #b5b5b5;
 		font-weight: 400;
 	}
-	
 	input::-moz-placeholder {
 		color: #b5b5b5;
 		font-weight: 400;
 	}
-	
 	input:-ms-input-placeholder {
 		color: #b5b5b5;
 		font-weight: 400;
 	}
-	
 	.xian {
 		border-top: .5px #fd5f39 solid;
 		width: 100%;
@@ -380,7 +187,6 @@
 		padding: 8px 0px 0px 0px;
 		display: inline-block;
 	}
-	
 	.tishi {
 		width: 100%;
 		height: 23px;
@@ -389,17 +195,14 @@
 		padding: 8px 0px 0px 0px;
 		display: inline-block;
 	}
-	
 	* {
 		padding: 0;
 		margin: 0;
 	}
-	
 	.headerlogo {
 		width: 220px;
 		height: 35px;
 	}
-	
 	.header {
 		line-height: 60px;
 		width: 1014px;
@@ -407,38 +210,30 @@
 		justify-content: space-between;
 		margin: 0 auto;
 	}
-	
 	.lefthead {
 		width: 222px;
 		height: 35px;
 	}
-	
 	.lefthead img {
 		margin: 15px 0;
 	}
-	
 	.righthead {
 		display: flex;
 	}
-	
 	.righthead a {
 		font-size: 30px;
 	}
-	
 	.shuxian {
 		display: inline-block;
 		padding: 0px 15px 0px 8px;
 		color: gainsboro;
 	}
-	
 	.fa {
 		padding: 0 5px;
 	}
-	
 	.show {
 		position: relative;
 	}
-	
 	.qrcode_app {
 		position: absolute;
 		right: 20px;
@@ -450,13 +245,11 @@
 		box-shadow: 0 0 5px hsla(0, 0%, 80%, .6);
 		background-color: #fff;
 	}
-	
 	.righthead>a {
 		text-decoration: none;
 		font-size: 14px;
 		color: #999999;
 	}
-	
 	.middle {
 		position: relative;
 		height: 695px;
@@ -464,7 +257,6 @@
 		background: #00b38a url(//www.lgstatic.com/lg-landingpage-fed/pc/images/bg_49338802.png) bottom no-repeat;
 		background-size: auto 110px;
 	}
-	
 	.juzhong {
 		box-sizing: border-box;
 		position: absolute;
@@ -472,7 +264,6 @@
 		left: 50%;
 		transform: translate(-50%);
 	}
-	
 	.middle-slogo {
 		text-align: left;
 		margin: 0 auto;
@@ -481,114 +272,16 @@
 		height: 34px;
 		width: 1010px;
 	}
-	
 	.middle-slogo img {
 		width: 234px;
 		height: 34px;
 	}
-	
 	.leftmiddle {
 		width: 610px;
 		height: 480px;
 		box-sizing: border-box;
 		margin-right: 20px;
 	}
-	
-	.search input {
-		box-sizing: border-box;
-		font-size: 14px;
-		color: #666;
-		width: 608px;
-		padding-left: 49px;
-		flex: 1;
-		line-height: 46px;
-		border: none;
-		outline: none;
-		padding-right: 10px;
-	}
-	
-	.search {
-		border-radius: 2px;
-		height: 46px;
-		background: white;
-		position: relative;
-	}
-	
-	.glass {
-		display: inline-block;
-		position: absolute;
-		margin: 15px 11px 5px 22px;
-		background: url(../../assets/sprites.png) no-repeat;
-		background-position: -82px 0px;
-		background-size: 200px 200px;
-		width: 18px;
-		height: 16px;
-	}
-	
-	.search button {
-		position: absolute;
-		top: 5px;
-		right: 5px;
-		font-size: 16px;
-		color: #fff;
-		background: #00b38a;
-		border-radius: 2px;
-		border: none;
-		padding: 7px 25px;
-		outline: none;
-	}
-	
-	.middle .fenlei {
-		height: 415px;
-		width: 110px;
-	}
-	
-	.middle .fenlei ul {
-		padding: 7px 7px 0px 7px;
-	}
-	
-	.middle .fenlei li {
-		list-style: none;
-		width: 100px;
-		height: 59px;
-		line-height: 59px;
-		text-align: center;
-		color: white;
-		font-size: 16px;
-	}
-	
-	.leftfenlei {
-		margin-top: 10px;
-		background: #00906f;
-		border-radius: 4px;
-		box-sizing: border-box;
-	}
-	
-	.activet {
-		border-radius: 4px;
-		color: #007d61!important;
-		background-color: #7fc8b7;
-	}
-	
-	.fenlei {
-		width: 610px !important;
-		display: flex;
-	}
-	
-	.rightfenlei {
-		margin-top: 7px;
-		box-sizing: border-box;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		align-items: flex-end;
-		padding: 3px 0px 0px 10px;
-	}
-	
-	.rightfenlei img {
-		border-radius: 4px;
-	}
-	
 	.rightmiddle {
 		margin-left: 20px;
 		width: 360px;
@@ -600,7 +293,6 @@
 		box-sizing: border-box;
 		animation: name1 0.5s 0s ease alternate;
 	}
-	
 	@keyframes name1 {
 		15% {
 			transform: rotate(-3deg);
@@ -621,7 +313,6 @@
 			transform: rotate(3deg);
 		}
 	}
-	
 	.mid-title {
 		font-size: 24px;
 		text-align: center;
@@ -629,11 +320,9 @@
 		line-height: 26px;
 		margin-bottom: 47px;
 	}
-	
 	.green {
 		color: #00b38a;
 	}
-	
 	.rightmiddle .input1-1 {
 		text-indent: 4.5rem;
 		font-weight: lighter;
@@ -646,7 +335,6 @@
 		border-bottom: .5px solid #e6e6e6;
 		outline: none;
 	}
-	
 	.rightmiddle .dierge {
 		font-weight: lighter;
 		width: 100%;
@@ -658,11 +346,9 @@
 		border-bottom: .5px solid #e6e6e6;
 		outline: none;
 	}
-	
 	.form-right {
 		position: relative;
 	}
-	
 	.updowm {
 		font-size: 15px;
 		color: #122B40;
@@ -675,7 +361,6 @@
 		height: 38px;
 		padding-right: 22px
 	}
-	
 	.updowm:after {
 		position: absolute;
 		top: 4px;
@@ -689,7 +374,6 @@
 		background-position: -136px -9px;
 		z-index: 2;
 	}
-	
 	.zhuce {
 		width: 100%;
 		height: 48px;
@@ -701,102 +385,26 @@
 		text-align: center;
 		text-decoration: none;
 		border-radius: 3px;
-	}
-	
+	}	
 	.xieyi {
 		text-align: center;
 		font-size: 14px;
 		color: #999;
 	}
-	
 	.xieyi>a {
 		font-size: 14px;
 		color: #00b38a;
 		text-decoration: none;
 	}
-	
 	.yiyouzhanhao {
 		text-align: center;
 		margin-top: 44px;
 	}
-	
 	.yiyouzhanhao>a {
 		font-size: 14px;
 		color: #00b38a;
 		text-decoration: underline;
 	}
-	
-	.footerlist img {
-		margin: 0px 8px 0px;
-		width: 43px;
-		height: 43px;
-	}
-	
-	.footerlist {
-		padding-bottom: 40px;
-		margin: 0 auto;
-		width: 1014px;
-		display: flex;
-		justify-content: space-between;
-	}
-	
-	.footerlist li {
-		display: flex;
-		list-style: none;
-	}
-	
-	.foottitle {
-		font-size: 18px;
-		color: #333;
-		height: 20px;
-		line-height: 20px;
-	}
-	
-	.footcontent {
-		font-weight: 400;
-		font-size: 13px;
-		color: #666;
-		height: 32px;
-		line-height: 32px;
-	}
-	
-	.footer {
-		padding-top: 50px;
-		padding-bottom: 30px;
-	}
-	
-	.footbottom img {
-		width: 175px;
-		height: 18px;
-	}
-	
-	.footbottom-info {
-		margin: 0 auto;
-		color: #999;
-		font-size: 12px;
-		width: 1014px;
-		text-align: center;
-		line-height: 22px;
-	}
-	
-	.footimg {
-		height: 26px;
-		padding-top: 25px;
-		width: 1014px;
-		border-top: 0.6px solid #d5dadf;
-		margin: 0 auto;
-		text-align: center;
-	}
-	
-	.footerline {
-		display: inline-block;
-		width: 1px;
-		height: 10px;
-		margin: 0 5px;
-		background: #ccc;
-		overflow: hidden;
-	}
-	
 	.aa {
 		position: absolute;
 		z-index: 3;

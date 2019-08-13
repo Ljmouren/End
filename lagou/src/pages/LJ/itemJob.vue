@@ -21,7 +21,7 @@
 						<div :class="item.hasbgurl?'bgimg no':'no'"></div>
 						<div class="itemt">
 							<p>
-								<span>{{item.title}}</span>
+								<span @click="goXiang(item)">{{item.title}}</span>
 								<em>[{{item.date}}发布]</em>
 								<i></i>
 								<strong>{{item.wage}}</strong>
@@ -73,19 +73,20 @@
 		data() {
 			return {
 				arr: [],
-				arr2:[],
+				arr2: [],
 				isshow: false,
 				isshow1: false,
 				isS: false,
 				isS: false,
 				layout: 'hot',
 				current: '',
+				currlist: {}
 			}
 		},
 		mounted() {
 			this.itemjob();
 			this.itemjob2();
-			this.current=-1;
+			this.current = -1;
 		},
 		methods: {
 			itemjob() {
@@ -117,31 +118,43 @@
 				this.current = index;
 			},
 			out() {
-				this.current=-1;
+				this.current = -1;
 			},
-			getDate(index){
-				var date=new Date();
-				return date.getHours()+":"+(date.getMinutes()-index+16);
+			getDate(index) {
+				var date = new Date();
+				return date.getHours() + ":" + (date.getMinutes() - index + 16);
+			},
+			goXiang(item) {
+				this.currlist = item;
+				this.$router.push({
+					path: '/xiangqing',
+					query: {
+						dataObj: this.currlist
+					},
+				})
 			}
 		}
 	}
 </script>
 
 <style lang="less" scoped>
-	.bgimg{
+	.bgimg {
 		background: url(//www.lgstatic.com/www/static/index/modules/job_list/img/direct-recruit@2x_0d49da5.png) no-repeat;
 		background-size: cover;
 	}
-	.no{
+	
+	.no {
 		width: 36px;
 		height: 36px;
 		position: absolute;
 		top: 0;
 		left: 0;
 	}
+	
 	.shadow {
 		box-shadow: 0px 0px 12px #eeeeee;
 	}
+	
 	.a {
 		margin-top: 10px;
 		width: 100%;
@@ -165,6 +178,7 @@
 			color: white;
 		}
 	}
+	
 	.hot_tips {
 		font-size: 14px;
 		display: flex;
@@ -219,7 +233,7 @@
 			}
 		}
 		.itembox {
-				overflow: hidden;
+			overflow: hidden;
 			.items {
 				width: 100%;
 				font-size: 15px;
@@ -292,10 +306,10 @@
 								display: inline-block;
 								color: #999;
 							}
-							p{
+							p {
 								text-overflow: ellipsis;
-							white-space: nowrap;
-							overflow: hidden;
+								white-space: nowrap;
+								overflow: hidden;
 							}
 						}
 						img {
@@ -307,5 +321,5 @@
 				}
 			}
 		}
-			}
+	}
 </style>

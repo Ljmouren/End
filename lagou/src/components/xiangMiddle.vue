@@ -146,7 +146,6 @@ export default {
 computed:{
 	jobArr2(){
 		var count=Math.floor(Math.random()*20);
-		console.log(count);
 		return this.jobArr1.slice(count,count+7);
 	},
 	jobArr3(){
@@ -157,12 +156,10 @@ computed:{
   methods:{
   	getJobDate(){
   		this.$axios.get("../../../static/data/chuJob.json").then(res=>{
-  			console.log(res.data.recommend_one);
 			  this.jobArr1=res.data.recommend_one;
   		})
   	},
   	 handler ({BMap, map}) {
-      console.log(BMap, map)
       this.center.lng = 116.404
       this.center.lat = 39.915
       this.zoom = 15

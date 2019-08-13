@@ -17,6 +17,9 @@ export default {
   		isRouterAlive:true
   	}
   },
+  mounted(){
+  	this.$router.push('./index')
+  },
   methods:{
     reload (){
        this.isRouterAlive = false

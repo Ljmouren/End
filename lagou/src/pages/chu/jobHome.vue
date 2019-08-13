@@ -158,8 +158,8 @@
 			},
 			fn: function() {
 				this.isLogin = this.$store.state.isLogin
-					//console.log(this.$store.state.phonenum)
-					//console.log(this.$store.state.isLogin)
+				//console.log(this.$store.state.phonenum)
+				//console.log(this.$store.state.isLogin)
 			}
 		},
 		methods: {
@@ -171,13 +171,12 @@
 					this.jobArr = res.data.recommend_one
 				})
 			},
-				toDetail(item) {
-				this.detailObj=item;
-				console.log(1111,this.detailObj);
+			toDetail(item) {
+				this.detailObj = item;
 				this.$router.push({
 					path: '/xiangqing',
 					query: {
-						dataObj:this.detailObj
+						dataObj: this.detailObj
 					}
 				})
 			}
