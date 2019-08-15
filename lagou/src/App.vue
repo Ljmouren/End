@@ -18,7 +18,7 @@ export default {
   	}
   },
   mounted(){
-  	this.$router.push('./index')
+  	this.$router.push('./Register')
   },
   methods:{
     reload (){

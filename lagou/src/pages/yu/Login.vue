@@ -101,7 +101,6 @@
 		computed:{
 			storep:function(){
 				return this.$store.state.phonenum;
-				console.log(this.$store.state.phonenum);
 			},
 			storew:function(){
 				return this.$store.state.passwd

@@ -27,7 +27,4 @@ state:{
 		}
 	},
 	plugins: [persistedState({ storage: window.sessionStorage })]
-	
-
- 
 })

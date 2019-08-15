@@ -135,7 +135,7 @@
 				pageSize: 7,
 				msg: "",
 				isLogin: false,
-				detailObj: []
+				detailObj:{}
 			}
 		},
 		components: {

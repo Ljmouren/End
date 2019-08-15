@@ -8,13 +8,13 @@
 			<div class="box" id="container">
 				
 				  <!-- 个人信息-->
-			        <div class="basic">
+			        <div class="basic" id="information">
 			
 							<div class="basic-photo" @mouseenter="show()"@mouseleave="gbi()">
 								        <img class="mr_headimg user-avatar" src="//www.lgstatic.com/common/image/pc/default_boy_headpic1.png"  width="120" height="120" alt="头像" />
 								        <img v-show="tximagshow" src="//www.lgstatic.com/www/static/mycenter/modules/common/img/shadow_tx_a482008.png" width="119" height="119" />
 							</div>
-							<div class="basic-info">    
+							<div class="basic-info" id="information">    
 						        <el-button @click="openDialog" class="edit-btn basic-info__edit"><i class="el-icon-edit"></i> 编辑</el-button>
 						        <div class="basic-name-area" >
 						            <p class="basic-name female">{{indexdata.name}}</p>
@@ -37,7 +37,7 @@
 					        </div>
 					</div>    
 				
-				<div class="detail">
+				<div class="detail" id="description">
 					<!--自我描述-->
 					 <div class="mr-template per" id="perAbility">
 					    <div class="mr-template_title">
@@ -100,8 +100,8 @@
 			    
 			    <!-- 工作经历-->
 			    <div class="mr-templateedu-exp" id="eduExp">
-				    <div class="mr-template_title">
-				        <span>工作经历</span>
+				    <div class="mr-template_title" id="experience">
+				        <span id="skill">工作经历</span>
 				        <em class="add-btn">
 				                 <i class="el-icon-folder-add"></i>
 				                添加
@@ -111,7 +111,7 @@
 			    </div>
 			    <!--项目经历 -->
 			    <div class="mr-templateedu-exp" id="eduExp">
-				    <div class="mr-template_title">
+				    <div class="mr-template_title" id="gam">
 				        <span>项目经历</span>
 				        <em class="add-btn">
 				                 <i class="el-icon-folder-add"></i>
@@ -122,7 +122,7 @@
 			    </div>
 			    <!--社交主页 -->
 			    <div class="mr-templateedu-exp" id="eduExp">
-				    <div class="mr-template_title">
+				    <div class="mr-template_title" >
 				        <span>社交主页</span>
 				        <em class="add-btn">
 				                 <i class="el-icon-folder-add"></i>
@@ -133,7 +133,7 @@
 			    </div>
 			    <!--图片作品 -->
 			    <div class="mr-templateedu-exp" id="eduExp">
-				    <div class="mr-template_title">
+				    <div class="mr-template_title" id="imges">
 				        <span>图片作品</span>
 				        <em class="add-btn">
 				                 <i class="el-icon-folder-add"></i>
@@ -205,14 +205,19 @@
 		        <!--基本信息  -->
 		        <div class="message">
 			        <ul class="right-nav__content">
+			        	<a href="#information">
 			            <li class="right-nav__item active" @click="changeStatus(1)" :style="{'border-left':isActive==1?blueColor:normalColor, 'color':isActive==1?'#00b88d':'#333'}">
 			                <i class="el-icon-user"></i>
 			                <span class="mr_m_name">基本信息</span> 
 			            </li>
+			          </a> 
+			          <a href="#description">
 			            <li class="right-nav__item" @click="changeStatus(2)" :style="{'border-left':isActive==2?blueColor:normalColor,  'color':isActive==2?'#00b88d':'#333'}">
 			               <i class="el-icon-tickets"></i>
 			                <span class="mr_m_name">个人能力</span>
 			            </li>
+			          </a>
+			          <a href="#experience">
 			            <li class="right-nav__item" @click="changeStatus(3)" :style="{'border-left':isActive==3?blueColor:normalColor,  'color':isActive==3?'#00b88d':'#333'}">
 			                <div class="editor-tool">
 			                        <em class="add-btn">添加</em>
@@ -220,6 +225,8 @@
 			                <i class="el-icon-suitcase"></i>
 			                <span class="mr_m_name">工作经历</span>
 			            </li>
+			          </a>
+			          <a href="#skill">
 			            <li class="right-nav__item" @click="changeStatus(4)" :style="{'border-left':isActive==4?blueColor:normalColor,  'color':isActive==4?'#00b88d':'#333'}">
 			                <div class="editor-tool">
 			                        <em class="add-btn">添加</em>
@@ -228,6 +235,8 @@
 			                <i class="el-icon-s-data"></i>
 			                <span class="mr_m_name">项目经验</span>
 			            </li>
+			          </a>  
+			          <a href="#education">
 			            <li class="right-nav__item" @click="changeStatus(5)" :style="{'border-left':isActive==5?blueColor:normalColor,  'color':isActive==5?'#00b88d':'#333'}">
 			                <div class="editor-tool">
 			                        <em class="add-btn">添加</em>
@@ -235,7 +244,9 @@
 			                <i class="el-icon-reading"></i>
 			                <span class="mr_m_name">教育经历</span>
 			            </li>
-			            <li class="right-nav__item" @click="changeStatus(6)" :style="{'border-left':isActive==6?blueColor:normalColor,  'color':isActive==6?'#00b88d':'#333'}">
+			          </a>
+			          <a href="#gam">
+			          <li class="right-nav__item" @click="changeStatus(6)" :style="{'border-left':isActive==6?blueColor:normalColor,  'color':isActive==6?'#00b88d':'#333'}">
 			                <div class="editor-tool">
 			                        <em class="add-btn">添加</em>
 			                        <em class="del-btn dn">删除</em> 
@@ -243,6 +254,8 @@
 			                <i class="el-icon-copy-document"></i>
 			                <span class="mr_m_name">社交主页</span>
 			            </li>
+			          </a>
+			          <a href="#imges">
 			            <li class="right-nav__item" @click="changeStatus(7)" :style="{'border-left':isActive==7?blueColor:normalColor,  'color':isActive==7?'#00b88d':'#333'}">
 			                <div class="editor-tool">
 			                        <em class="add-btn">添加</em>
@@ -251,6 +264,7 @@
 			                <i class="el-icon-picture-outline"></i>
 			                <span class="mr_m_name">图片作品</span>
 			            </li>
+			          </a>  
 	                </ul>
 	            </div>   
 	         

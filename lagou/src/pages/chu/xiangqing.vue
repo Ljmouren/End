@@ -5,7 +5,7 @@
 		<!-------------------吸顶---------------------->
 		<div id="boxFixed" :class="{'is_fixed' : isFixed}" v-show="isFixed">
 			<div class="ding">
-				<p class="ding-job">{{detailArr.title}}/ <span>{{detailArr.wage}}</span></p>
+				<p class="ding-job">{{detailArr.title}}/ <span> 15k-25k</span></p>
 				<div class="tou-2">
 					<div class="tou-2-1">
 						<p @click="shoucang()"><i class="fa fa-star-o fa-lg"></i> <span>收藏</span></p>
@@ -95,6 +95,7 @@
 			window.addEventListener('scroll', this.hujianScroll)
 			this.fn
 		},
+
 		computed: {
 			fn: function() {
 				this.isLogin = this.$store.state.isLogin
@@ -108,101 +109,99 @@
 		},
 		methods: {
 			shoucang() {
-				if(!this.$store.state.isLogin == true) {
-					this.$alert('未登录,请先登录或注册', '提示', {
-						confirmButtonText: '确定',
-						callback: action => {
-							this.$message({
-								type: 'error',
-								message: ``
-							});
-						}
-					});
-				}
-			else {
-				localStorage.setItem('DetailData', this.detailArr);
-				this.isshoucangShow = false;
-			}
-		},
-		shoucang2() {
-			this.isshoucangShow = true;
-		},
-		open() {
-			localStorage.setItem('DetailData1', this.detailArr);
-			const h = this.$createElement;
-			this.$msgbox({
-				title: '投递简历确认',
-				message: h('p', null, [
-					h('span', null, '学历、工作年限与该职位要求不匹配，确认要投递吗？ '),
-					h('i', {
-						style: 'color: teal'
-					}, )
-				]),
-				showCancelButton: true,
-				confirmButtonText: '确定投递',
-				cancelButtonText: '放弃投递',
-				beforeClose: (action, instance, done) => {
-					if(action === 'confirm') {
-						instance.confirmButtonLoading = true;
-						//		              instance.confirmButtonText = '执行中...';
-						setTimeout(() => {
-							done();
+				localStorage.setItem('DetailData', JSON.stringify(this.detailArr));
+				this.isshoucangShow = true;
+			
+			},
+			shoucang2() {
+				this.isshoucangShow = true;
+                
+			},
+			open() {
+				localStorage.setItem('DetailData1', JSON.stringify(this.detailArr));
+				console.log(this.detailArr);
+				const h = this.$createElement;
+				this.$msgbox({
+					title: '投递简历确认',
+					message: h('p', null, [
+						h('span', null, '学历、工作年限与该职位要求不匹配，确认要投递吗？ '),
+						h('i', {
+							style: 'color: teal'
+						}, )
+					]),
+					showCancelButton: true,
+					confirmButtonText: '确定投递',
+					cancelButtonText: '放弃投递',
+					beforeClose: (action, instance, done) => {
+						if(action === 'confirm') {
+							instance.confirmButtonLoading = true;
+							//		              instance.confirmButtonText = '执行中...';
 							setTimeout(() => {
-								instance.confirmButtonLoading = false;
-							}, 100);
-						}, 1000);
-					} else {
-						done();
+								done();
+								setTimeout(() => {
+									instance.confirmButtonLoading = false;
+								}, 100);
+							}, 1000);
+						} else {
+							done();
+						}
 					}
-				}
-			}).then(action => {
-				this.$message({
-					type: 'info',
-					message: 'action: ' + action
+				}).then(action => {
+					this.$message({
+						type: 'info',
+						message: 'action: ' + action
+					});
 				});
-			});
-		},
-		menu() {
-			window.scrollTo(0, 0);
-		},
+			},
+			menu() {
+				window.scrollTo(0, 0);
+			},
 
-		getDetailData() {
-			this.detailArr = this.$route.query.dataObj;
-		},
-		handleScroll() {
-			var scrollTopa = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop // 滚动条偏移量
-			var offsetTopa = document.querySelector('#boxFixed').offsetTop; // 要滚动到顶部吸附的元素的偏移量
-			this.isFixed = scrollTopa > offsetTopa ? true : false; // 如果滚动到顶部了，this.isFixed就为true
-		},
-		change() {
-			let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop // 滚动条偏移量
-			this.ischange = true;
-			const that = this;
-			let timer = setInterval(function() {
-				let ispeed = Math.floor(-that.scrollTop / 4);
-				document.documentElement.scrollTop = document.body.scrollTop = that.scrollTop + ispeed;
-				if(that.scrollTop === 0) {
-					clearInterval(timer)
+			getDetailData() {
+				this.detailArr = this.$route.query.dataObj;
+				//				
+				//				console.log("------------------");
+				//				console.log(this.$route.query.dataObj);
+				//				console.log(this.detailArr)
+			},
+			handleScroll() {
+				let scrollTopa = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop // 滚动条偏移量
+				let offsetTopa = document.querySelector('#boxFixed').offsetTop; // 要滚动到顶部吸附的元素的偏移量
+				this.isFixed = scrollTopa > offsetTopa ? true : false;// 如果滚动到顶部了，this.isFixed就为true
+
+			},
+
+			change() {
+				let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop // 滚动条偏移量
+				this.ischange = true;
+				const that = this;
+				let timer = setInterval(function() {
+					let ispeed = Math.floor(-that.scrollTop / 4);
+					document.documentElement.scrollTop = document.body.scrollTop = that.scrollTop + ispeed;
+					if(that.scrollTop === 0) {
+						clearInterval(timer)
+					}
+				}, 10);
+
+				if(scrollTop === 0) {
+					this.isshow = false;
 				}
-			}, 10);
-			if(scrollTop === 0) {
-				this.isshow = false;
-			}
-		},
-		hujianScroll() {
-			const that = this;
-			let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-			that.scrollTop = scrollTop
-			if(that.scrollTop > 60) {
-				that.isshow = true;
-			} else {
-				that.isshow = false
-			}
-			if(that.scrollTop == 0) {
-				this.ischange = false;
-			}
-		},
-	}
+			},
+			hujianScroll() {
+				const that = this;
+				let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+				that.scrollTop = scrollTop
+				if(that.scrollTop > 60) {
+					that.isshow = true;
+				} else {
+					that.isshow = false
+
+				}
+				if(that.scrollTop == 0) {
+					this.ischange = false;
+				}
+			},
+		}
 	}
 </script>
 

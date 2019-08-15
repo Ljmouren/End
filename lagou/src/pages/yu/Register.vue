@@ -136,11 +136,8 @@
 						cancelButtonText: '取消'
 					})
 					.then(() => {
-
 						this.$store.commit('setPhonenum', this.phone);
-						console.log(this.phone);
 						this.$store.commit('setpasswd', this.pwd);
-						console.log(this.pwd);
 						this.$router.push('/Login')
 					})
 					.catch(action => {
