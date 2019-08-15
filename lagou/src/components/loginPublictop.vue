@@ -192,7 +192,7 @@
 	
 	.public-nav .register {
 		position: absolute;
-		right: 430px;
+		right: 310px;
 		top: 50%;
 		text-align: center;
 		transform: translateY(-50%);
@@ -217,7 +217,7 @@
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-		right: 300px;
+		right: 200px;
 		color: #0dca9f;
 	}
 	
@@ -240,7 +240,7 @@
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-		right: 200px;
+		right: 110px;
 		color: #afb5c0;
 	}
 	

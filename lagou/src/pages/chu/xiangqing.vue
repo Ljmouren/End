@@ -159,16 +159,11 @@
 
 			getDetailData() {
 				this.detailArr = this.$route.query.dataObj;
-				//				
-				//				console.log("------------------");
-				//				console.log(this.$route.query.dataObj);
-				//				console.log(this.detailArr)
 			},
 			handleScroll() {
 				let scrollTopa = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop // 滚动条偏移量
 				let offsetTopa = document.querySelector('#boxFixed').offsetTop; // 要滚动到顶部吸附的元素的偏移量
 				this.isFixed = scrollTopa > offsetTopa ? true : false;// 如果滚动到顶部了，this.isFixed就为true
-
 			},
 
 			change() {
