@@ -119,6 +119,7 @@
 	}
 	
 	.public-nav {
+		cursor: pointer;
 		width: 100%;
 		height: 40px;
 		background-color: #32373e;

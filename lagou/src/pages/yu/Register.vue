@@ -1,11 +1,12 @@
 <template>
 	<div class="registerwrap">
+		<div class="app"></div>
 		<div class="header">
 			<div class="lefthead">
 				<img src="../../assets/logo-slogan_443548c6.png" class="headerlogo" @click="goshouye">
 			</div>
 			<div class="righthead">
-				<a href="#" class="show" @mouseover='showw'>
+				<a class="show" @mouseover='showw'>
 					<i class="fa fa-mobile fa-lg"></i> 拉勾APP
 					<span class="shuxian">|</span>
 					<img class="qrcode_app" src="//www.lgstatic.com/lg-landingpage-fed/pc/images/qrcode-new_69efb8b8.png" v-show="isShow">
@@ -19,10 +20,13 @@
 			<div class="middle-slogo">
 				<img class="middle-slgon" src="//www.lgstatic.com/lg-landingpage-fed/pc/images/slgon_47bdda44.png">
 			</div>
-			<div class="juzhong">
+			<div class="bgop" v-show="mengcen"></div>
+			<div class="juzhong imgurl">
 				<div class="leftmiddle">
 					<reSearch></reSearch>
-					<reimgUrl></reimgUrl>
+					<!--<img src="../../assets/goright.jpg" class="thumb" v-show="mengcen"/>-->
+					<i class="el-icon-right thumb" v-show="mengcen"/></i>
+					<reimgUrl @sendshow="imgUrl"></reimgUrl>
 				</div>
 				<div class="rightmiddle">
 					<p class="mid-title"><span class="green">8秒</span>注册 轻松获高薪</p>
@@ -48,10 +52,9 @@
 					</div>
 				</div>
 			</div>
-			
 		</div>
 		<refoot></refoot>
-    </div>     
+	</div>
 </template>
 
 <script>
@@ -73,6 +76,7 @@
 				isGo: false, //点击注册按钮
 				sendt: false,
 				sendm: false,
+				mengcen: false
 			}
 		},
 		components: {
@@ -81,7 +85,13 @@
 			reimgUrl,
 			refoot
 		},
+		mounted() {
+			this.imgUrl();
+		},
 		methods: {
+			imgUrl(invalue) {
+				this.mengcen = invalue;
+			},
 			// 验证手机号码部分
 			//..........
 			sendcode() {
@@ -129,7 +139,6 @@
 			},
 			// 点击注册后弹出提示框
 			open() {
-
 				this.$confirm('点击确定将跳转到登录页面，是否继续？', '您已成功注册拉勾网', {
 						distinguishCancelAndClose: true,
 						confirmButtonText: '确定',
@@ -159,22 +168,75 @@
 	}
 </script>
 <style scoped lang="less">
+	.bgop {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, .5);
+	}
+	
+	.imgurl {
+		position: fixed;
+		z-index: 15;
+		height: 100%;
+	}
+	
+	.thumb {
+		width: 24px;
+		height: 24px;
+		position: absolute;
+		top: 30%;
+		left: 61%;
+		font-size: 24px;
+		color: white;
+		animation: name2 5s 0s ease alternate;
+	}
+	@keyframes name2 {
+		0% {
+			transform: translateX(-5px);
+		}
+		30% {
+			transform: translateX(10px);
+		}
+		45% {
+			transform: translateX(-8px);
+		}
+		60% {
+			transform: translateX(10px);
+		}
+		75% {
+			transform: translateX(-8px);
+		}
+		90% {
+			transform: translateX(0);
+		}
+	}
+	
 	input::-webkit-input-placeholder {
 		color: #b5b5b5;
 		font-weight: 400;
 	}
+	
 	input:-moz-placeholder {
 		color: #b5b5b5;
 		font-weight: 400;
 	}
+	
 	input::-moz-placeholder {
 		color: #b5b5b5;
 		font-weight: 400;
 	}
+	
 	input:-ms-input-placeholder {
 		color: #b5b5b5;
 		font-weight: 400;
 	}
+	
 	.xian {
 		border-top: .5px #fd5f39 solid;
 		width: 100%;
@@ -184,6 +246,7 @@
 		padding: 8px 0px 0px 0px;
 		display: inline-block;
 	}
+	
 	.tishi {
 		width: 100%;
 		height: 23px;
@@ -192,14 +255,17 @@
 		padding: 8px 0px 0px 0px;
 		display: inline-block;
 	}
+	
 	* {
 		padding: 0;
 		margin: 0;
 	}
+	
 	.headerlogo {
 		width: 220px;
 		height: 35px;
 	}
+	
 	.header {
 		line-height: 60px;
 		width: 1014px;
@@ -207,30 +273,38 @@
 		justify-content: space-between;
 		margin: 0 auto;
 	}
+	
 	.lefthead {
 		width: 222px;
 		height: 35px;
 	}
+	
 	.lefthead img {
 		margin: 15px 0;
 	}
+	
 	.righthead {
 		display: flex;
 	}
+	
 	.righthead a {
 		font-size: 30px;
 	}
+	
 	.shuxian {
 		display: inline-block;
 		padding: 0px 15px 0px 8px;
 		color: gainsboro;
 	}
+	
 	.fa {
 		padding: 0 5px;
 	}
+	
 	.show {
 		position: relative;
 	}
+	
 	.qrcode_app {
 		position: absolute;
 		right: 20px;
@@ -242,11 +316,13 @@
 		box-shadow: 0 0 5px hsla(0, 0%, 80%, .6);
 		background-color: #fff;
 	}
+	
 	.righthead>a {
 		text-decoration: none;
 		font-size: 14px;
 		color: #999999;
 	}
+	
 	.middle {
 		position: relative;
 		height: 695px;
@@ -254,6 +330,7 @@
 		background: #00b38a url(//www.lgstatic.com/lg-landingpage-fed/pc/images/bg_49338802.png) bottom no-repeat;
 		background-size: auto 110px;
 	}
+	
 	.juzhong {
 		box-sizing: border-box;
 		position: absolute;
@@ -261,6 +338,7 @@
 		left: 50%;
 		transform: translate(-50%);
 	}
+	
 	.middle-slogo {
 		text-align: left;
 		margin: 0 auto;
@@ -269,16 +347,19 @@
 		height: 34px;
 		width: 1010px;
 	}
+	
 	.middle-slogo img {
 		width: 234px;
 		height: 34px;
 	}
+	
 	.leftmiddle {
 		width: 610px;
 		height: 480px;
 		box-sizing: border-box;
 		margin-right: 20px;
 	}
+	
 	.rightmiddle {
 		margin-left: 20px;
 		width: 360px;
@@ -290,6 +371,7 @@
 		box-sizing: border-box;
 		animation: name1 0.5s 0s ease alternate;
 	}
+	
 	@keyframes name1 {
 		15% {
 			transform: rotate(-3deg);
@@ -310,6 +392,7 @@
 			transform: rotate(3deg);
 		}
 	}
+	
 	.mid-title {
 		font-size: 24px;
 		text-align: center;
@@ -317,9 +400,11 @@
 		line-height: 26px;
 		margin-bottom: 47px;
 	}
+	
 	.green {
 		color: #00b38a;
 	}
+	
 	.rightmiddle .input1-1 {
 		text-indent: 4.5rem;
 		font-weight: lighter;
@@ -332,6 +417,7 @@
 		border-bottom: .5px solid #e6e6e6;
 		outline: none;
 	}
+	
 	.rightmiddle .dierge {
 		font-weight: lighter;
 		width: 100%;
@@ -343,9 +429,11 @@
 		border-bottom: .5px solid #e6e6e6;
 		outline: none;
 	}
+	
 	.form-right {
 		position: relative;
 	}
+	
 	.updowm {
 		font-size: 15px;
 		color: #122B40;
@@ -358,6 +446,7 @@
 		height: 38px;
 		padding-right: 22px
 	}
+	
 	.updowm:after {
 		position: absolute;
 		top: 4px;
@@ -371,6 +460,7 @@
 		background-position: -136px -9px;
 		z-index: 2;
 	}
+	
 	.zhuce {
 		width: 100%;
 		height: 48px;
@@ -382,26 +472,31 @@
 		text-align: center;
 		text-decoration: none;
 		border-radius: 3px;
-	}	
+	}
+	
 	.xieyi {
 		text-align: center;
 		font-size: 14px;
 		color: #999;
 	}
+	
 	.xieyi>a {
 		font-size: 14px;
 		color: #00b38a;
 		text-decoration: none;
 	}
+	
 	.yiyouzhanhao {
 		text-align: center;
 		margin-top: 44px;
 	}
+	
 	.yiyouzhanhao>a {
 		font-size: 14px;
 		color: #00b38a;
 		text-decoration: underline;
 	}
+	
 	.aa {
 		position: absolute;
 		z-index: 3;

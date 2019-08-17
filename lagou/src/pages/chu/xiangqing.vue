@@ -91,6 +91,7 @@
 		},
 		mounted() {
 			this.getDetailData();
+			this.setIcon();
 			window.addEventListener('scroll', this.handleScroll); // 监听滚动事件，然后用handleScroll这个方法进行相应的处理
 			window.addEventListener('scroll', this.hujianScroll)
 			this.fn
@@ -108,18 +109,64 @@
 			window.removeEventListener('scroll', this.handleScroll)
 		},
 		methods: {
-			shoucang() {
-				localStorage.setItem('DetailData', JSON.stringify(this.detailArr));
-				this.isshoucangShow = true;
-			
+			//控制收藏图标状态
+			setIcon(){
+				let currObj=this.detailArr;
+				let likesAry=JSON.parse(localStorage.getItem('likes'));
+				if(likesAry){
+					likesAry.forEach((item,index)=>{
+					if(item.title==currObj.title){
+						this.isshoucangShow = false;
+						console.log('1');
+					}
+				})
+				}
+				
 			},
+			//点击收藏
+			shoucang() {
+				if(this.$store.state.isLogin==true){
+					this.isshoucangShow = false;
+					let addObj=this.detailArr;//把本次要添加的数据存进addObj中	
+					// addObj.isLike=true;	
+					let likesAry=JSON.parse(localStorage.getItem('likes')) || [];//获取本地存储中的值放入likesAry 中,若不存在则给它赋一个空数组
+					if(JSON.stringify(likesAry).indexOf(JSON.stringify(addObj))==-1){
+						//判断本地存储中是否已存在当前要添加的数据
+						likesAry.push(addObj);
+					}
+					localStorage.setItem('likes', JSON.stringify(likesAry));
+				}else{
+				this.$confirm('点击确定将跳转到注册页面,是否继续？', '未登录', {
+						distinguishCancelAndClose: true,
+						confirmButtonText: '确定',
+						cancelButtonText: '取消'
+					})
+					.then(() => {
+						this.$router.push('/Register')
+					})
+					.catch(action => {
+						this.$router.push('/xiangqing')
+					});
+				}		
+			},
+			//取消收藏
 			shoucang2() {
 				this.isshoucangShow = true;
-                
+				let delObj=this.detailArr;//获取本次要取消收藏的数据存进delObj中				
+				let likesAry=JSON.parse(localStorage.getItem('likes'));
+				if(likesAry){
+					likesAry.forEach((item,index) => {
+					if(item.title==delObj.title){
+						likesAry.splice(index,1)
+					}
+				});
+				localStorage.setItem('likes', JSON.stringify(likesAry));//更新删除后的数据
+				// console.log('删除后：',likesAry)		
+				}
 			},
 			open() {
-				localStorage.setItem('DetailData1', JSON.stringify(this.detailArr));
-				console.log(this.detailArr);
+				if(this.$store.state.isLogin==true){
+					localStorage.setItem('DetailData', JSON.stringify(this.detailArr));
 				const h = this.$createElement;
 				this.$msgbox({
 					title: '投递简历确认',
@@ -152,13 +199,15 @@
 						message: 'action: ' + action
 					});
 				});
+				}
+				
 			},
 			menu() {
 				window.scrollTo(0, 0);
 			},
 
 			getDetailData() {
-				this.detailArr = this.$route.query.dataObj;
+				this.detailArr = this.$route.query.dataObj;//获取上个页面传过来的数据
 			},
 			handleScroll() {
 				let scrollTopa = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop // 滚动条偏移量

@@ -190,7 +190,7 @@
 		box-sizing: border-box;
 		font-size: 14px;
 		color: #666;
-		width: 608px;
+		width: 610px;
 		padding-left: 49px;
 		flex: 1;
 		line-height: 46px;

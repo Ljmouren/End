@@ -1,11 +1,11 @@
 <template>
 	<div class="fenlei">
-		<div class="leftfenlei">
+		<div class="leftfenlei" :class="{bgop:isShow}">
 			<ul v-for="(item,index) in stylelist" @click="fn(index)">
 				<li :class="{activet:active==item.title}" @click="selected(item.title)">{{item.title}}</li>
 			</ul>
 		</div>
-		<div class="rightfenlei">
+		<div class="rightfenlei" :class="{bgop:isShow}">
 			<div v-for="(item,index1) in imgUrl">
 				<img :src="item.url" class="hover_img" @click="tank(index1)">
 			</div>
@@ -77,6 +77,7 @@
 			tank(index1) {
 				this.inid = index1;
 				this.getdata();
+				this.$emit("sendshow",this.isShow)
 			},
 			imgload() {
 				this.$axios.get('../../../static/data/yu.json')
@@ -106,13 +107,13 @@
 			getdata() {
 				this.$axios.get('../../static/data/reimgurl.json')
 					.then(res => {
-						console.log(res.data.dataa)
 						this.strlist = res.data.dataa[this.inid]
 					})
 					this.isShow=true;
 			},
 			close() {
 				this.isShow = false;
+				this.$emit("sendshow",this.isShow)
 				this.inid=-1;
 			}
 		}
@@ -121,11 +122,9 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-	.hello {
-		position: absolute;
-		left: 50px;
-	}
-	
+.bgop{
+    background: rgba(0,0,0,.5);
+}
 	.el-icon-close {
 		position: absolute;
 		right: 20px;
@@ -141,11 +140,13 @@
 	.hello {
 		font-weight: 500;
 		color: #666666;
-		width: 525px;
-		height: 395px;
+		width: 610px;
+		height: 460px;
 		position: absolute;
-		z-index: 3;
+		left: 50px;
 		background: white;
+		top: 0px;
+		left: 0px;
 	}
 	
 	.header {
@@ -157,24 +158,20 @@
 		margin-right: 10px;
 		border: 1px solid #ccc;
 	}
-	
 	.content1 {
 		line-height: 30px;
 		margin-bottom: 20px;
 	}
-	
 	.content1 span {
 		font-size: 15px;
 		display: inline-block;
 		width: 30%;
 		margin-right: 10px;
 	}
-	
 	.content2 {
 		line-height: 30px;
 		margin-bottom: 35px;
 	}
-	
 	.content2 span {
 		border-radius: 3px;
 		font-size: 13px;
@@ -182,11 +179,9 @@
 		margin-right: 13px;
 		border: 1px solid #ccc;
 	}
-	
 	.zhuti {
 		padding: 20px 10px 30px 30px;
 	}
-	
 	h3 {
 		color: #122B40;
 		font-weight: 600;

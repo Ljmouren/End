@@ -59,7 +59,7 @@ export default {
 	},
 	mounted(){
 		//得到本地数据
-		this.xiangqinglocalStorage= JSON.parse(localStorage.getItem('DetailData'));
+		this.getData();
 		//当有了数据时让no_collections不显示
 		if(this.xiangqinglocalStorage){
 			this.no=false
@@ -72,6 +72,11 @@ export default {
   		this.yes_collections=true
   		}else if(this.flag!=0){
   			this.yes_collections=false
+  		}
+  	},
+  	getData(){
+  		if(this.$store.state.isLogin==true){
+  			this.xiangqinglocalStorage= JSON.parse(localStorage.getItem('DetailData'));
   		}
   	}
   }	

@@ -85,11 +85,13 @@ a {
   height: 40px;
   background-color: #32373e;
   position: relative;
+  cursor: pointer;
 }
 .public-nav span {
   display: inline-block;
 }
 .public-nav .company-logo {
+  cursor: pointer;
   width: 45px;
   height: 20px;
   background: url(http://www.lgstatic.com/www/static/common/widgets/header_c/modules/img/sprite_361857f.png) no-repeat;

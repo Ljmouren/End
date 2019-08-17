@@ -8,8 +8,8 @@
         "interview_comments": 92,
         "recruit_position": 49,
         "timeliness": "50%",
-        "type":"移动互联网",
-        "finance":"C轮",
+        "type":"金融，企业服务",
+        "finance":"D轮",
         "scale":"150-500人",
         "city":"上海"
     },
@@ -22,8 +22,8 @@
         "interview_comments": 136,
         "recruit_position": 34,
         "timeliness": "97%",
-        "type":"金融，消费",
-        "finance":"上市公司",
+        "type":"金融",
+        "finance":"D轮",
         "scale":"2000人",
         "city":"北京"
     },
@@ -36,7 +36,7 @@
         "interview_comments": 27,
         "recruit_position": 96,
         "timeliness": "44%",
-        "type":"移动互联网",
+        "type":"金融",
         "finance":"C轮",
         "scale":"150-500人",
         "city":"北京"
@@ -51,9 +51,9 @@
         "recruit_position": 71,
         "timeliness": "100%",
         "type":"移动互联网",
-        "finance":"C轮",
+        "finance":"B轮",
         "scale":"150-500人",
-        "city":"天津"
+        "city":"深圳"
     },
     {
         "coporate_id": 5,
@@ -67,7 +67,7 @@
         "type":"跨境电商",
         "finance":"B轮",
         "scale":"500-2000人",
-        "city":"杭州"
+        "city":"广州"
     },
     {
         "coporate_id": 6,
@@ -78,7 +78,7 @@
         "interview_comments": 92,
         "recruit_position": 49,
         "timeliness": "50%",
-        "type":"移动互联网",
+        "type":"金融",
         "finance":"C轮",
         "scale":"150-500人",
         "city":"上海"
@@ -93,9 +93,9 @@
         "recruit_position": 34,
         "timeliness": "97%",
         "type":"移动互联网",
-        "finance":"C轮",
+        "finance":"B轮",
         "scale":"150-500人",
-        "city":"廣州"
+        "city":"广州"
     },
     {
         "coporate_id": 8,
@@ -107,7 +107,7 @@
         "recruit_position": 96,
         "timeliness": "44%",
         "type":"移动互联网",
-        "finance":"C轮",
+        "finance":"B轮",
         "scale":"150-500人",
         "city":"成都"
     },
@@ -135,9 +135,9 @@
         "recruit_position": 30,
         "timeliness": "68%",
         "type":"移动互联网",
-        "finance":"C轮",
+        "finance":"A轮",
         "scale":"150-500人",
-        "city":"上海"
+        "city":"广州"
     },
     {
         "coporate_id": 11,
@@ -150,8 +150,8 @@
         "timeliness": "50%",
         "type":"移动互联网",
         "finance":"C轮",
-        "scale":"150-500人",
-        "city":"上海"
+        "scale":"少于15人",
+        "city":"南京"
     },
     {
         "coporate_id": 12,
@@ -163,7 +163,7 @@
         "recruit_position": 34,
         "timeliness": "97%",
         "type":"移动互联网",
-        "finance":"C轮",
+        "finance":"A轮",
         "scale":"150-500人",
         "city":"上海"
     },
@@ -176,10 +176,10 @@
         "interview_comments": 27,
         "recruit_position": 96,
         "timeliness": "44%",
-        "type":"移动互联网",
+        "type":"游戏",
         "finance":"C轮",
         "scale":"150-500人",
-        "city":"上海"
+        "city":"南京"
     },
     {
         "coporate_id": 14,
@@ -192,7 +192,7 @@
         "timeliness": "100%",
         "type":"移动互联网",
         "finance":"C轮",
-        "scale":"150-500人",
+        "scale":"少于15人",
         "city":"深圳"
     },
     {
@@ -204,10 +204,10 @@
         "interview_comments": 84,
         "recruit_position": 30,
         "timeliness": "68%",
-        "type":"移动互联网",
+        "type":"游戏",
         "finance":"C轮",
         "scale":"150-500人",
-        "city":"上海"
+        "city":"南京"
     },
     {
         "coporate_id": 16,
@@ -219,7 +219,7 @@
         "recruit_position": 49,
         "timeliness": "50%",
         "type":"移动互联网",
-        "finance":"C轮",
+        "finance":"A轮",
         "scale":"150-500人",
         "city":"深圳"
     },
@@ -232,10 +232,10 @@
         "interview_comments": 136,
         "recruit_position": 34,
         "timeliness": "97%",
-        "type":"移动互联网",
+        "type":"游戏",
         "finance":"C轮",
-        "scale":"150-500人",
-        "city":"上海"
+        "scale":"少于15人",
+        "city":"武汉"
     },
     {
         "coporate_id": 18,
@@ -247,9 +247,9 @@
         "recruit_position": 96,
         "timeliness": "44%",
         "type":"移动互联网",
-        "finance":"C轮",
+        "finance":"A轮",
         "scale":"150-500人",
-        "city":"深圳"
+        "city":"武汉"
     },
     {
         "coporate_id": 19,
@@ -260,9 +260,9 @@
         "interview_comments": 209,
         "recruit_position": 71,
         "timeliness": "100%",
-        "type":"移动互联网",
-        "finance":"C轮",
-        "scale":"150-500人",
+        "type":"游戏",
+        "finance":"天使轮",
+        "scale":"15-50人",
         "city":"上海"
     },
     {
@@ -277,7 +277,7 @@
         "type":"移动互联网",
         "finance":"C轮",
         "scale":"150-500人",
-        "city":"上海"
+        "city":"武汉"
     },
     {
         "coporate_id": 21,
@@ -288,9 +288,9 @@
         "interview_comments": 27,
         "recruit_position": 96,
         "timeliness": "44%",
-        "type":"移动互联网",
-        "finance":"C轮",
-        "scale":"150-500人",
+        "type":"文娱",
+        "finance":"天使轮",
+        "scale":"15-50人",
         "city":"深圳"
     },
     {
@@ -305,7 +305,7 @@
         "type":"移动互联网",
         "finance":"C轮",
         "scale":"150-500人",
-        "city":"上海"
+        "city":"武汉"
     },
     {
         "coporate_id": 23,
@@ -316,9 +316,9 @@
         "interview_comments": 84,
         "recruit_position": 30,
         "timeliness": "68%",
-        "type":"移动互联网",
+        "type":"文娱",
         "finance":"C轮",
-        "scale":"150-500人",
+        "scale":"500-2000人",
         "city":"上海"
     },
     {
@@ -330,10 +330,10 @@
         "interview_comments": 92,
         "recruit_position": 49,
         "timeliness": "50%",
-        "type":"移动互联网",
-        "finance":"C轮",
+        "type":"文娱",
+        "finance":"天使轮",
         "scale":"150-500人",
-        "city":"上海"
+        "city":"武汉"
     },
     {
         "coporate_id": 25,
@@ -344,9 +344,9 @@
         "interview_comments": 136,
         "recruit_position": 34,
         "timeliness": "97%",
-        "type":"移动互联网",
+        "type":"教育",
         "finance":"C轮",
-        "scale":"150-500人",
+        "scale":"500-2000人",
         "city":"深圳"
     },
     {
@@ -358,10 +358,10 @@
         "interview_comments": 27,
         "recruit_position": 96,
         "timeliness": "44%",
-        "type":"移动互联网",
+        "type":"教育",
         "finance":"C轮",
-        "scale":"150-500人",
-        "city":"上海"
+        "scale":"500-2000人",
+        "city":"武汉"
     },
     {
         "coporate_id": 27,
@@ -372,10 +372,10 @@
         "interview_comments": 209,
         "recruit_position": 71,
         "timeliness": "100%",
-        "type":"移动互联网",
-        "finance":"C轮",
+        "type":"教育",
+        "finance":"天使轮",
         "scale":"150-500人",
-        "city":"上海"
+        "city":"广州"
     },
     {
         "coporate_id": 28,
@@ -388,7 +388,7 @@
         "timeliness": "68%",
         "type":"移动互联网",
         "finance":"C轮",
-        "scale":"150-500人",
+        "scale":"500-2000人",
         "city":"上海"
     },
     {
@@ -400,7 +400,7 @@
         "interview_comments": 92,
         "recruit_position": 49,
         "timeliness": "50%",
-        "type":"移动互联网",
+        "type":"教育",
         "finance":"C轮",
         "scale":"150-500人",
         "city":"上海"
@@ -414,9 +414,9 @@
         "interview_comments": 136,
         "recruit_position": 34,
         "timeliness": "97%",
-        "type":"移动互联网",
+        "type":"企业服务",
         "finance":"C轮",
-        "scale":"150-500人",
+        "scale":"500-2000人",
         "city":"深圳"
     },
     {
@@ -429,7 +429,7 @@
         "recruit_position": 96,
         "timeliness": "44%",
         "type":"移动互联网",
-        "finance":"C轮",
+        "finance":"天使轮",
         "scale":"150-500人",
         "city":"上海"
     },
@@ -442,9 +442,9 @@
         "interview_comments": 209,
         "recruit_position": 71,
         "timeliness": "100%",
-        "type":"移动互联网",
+        "type":"企业服务",
         "finance":"C轮",
-        "scale":"150-500人",
+        "scale":"2000人以上",
         "city":"上海"
     },
     {
@@ -456,8 +456,8 @@
         "interview_comments": 84,
         "recruit_position": 30,
         "timeliness": "68%",
-        "type":"移动互联网",
-        "finance":"C轮",
+        "type":"企业服务",
+        "finance":"未融资",
         "scale":"150-500人",
         "city":"上海"
     },
@@ -472,7 +472,7 @@
         "timeliness": "50%",
         "type":"移动互联网",
         "finance":"C轮",
-        "scale":"150-500人",
+        "scale":"2000人以上",
         "city":"上海"
     },
     {
@@ -484,7 +484,7 @@
         "interview_comments": 136,
         "recruit_position": 34,
         "timeliness": "97%",
-        "type":"移动互联网",
+        "type":"企业服务",
         "finance":"C轮",
         "scale":"150-500人",
         "city":"上海"
@@ -498,9 +498,9 @@
         "interview_comments": 27,
         "recruit_position": 96,
         "timeliness": "44%",
-        "type":"移动互联网",
-        "finance":"C轮",
-        "scale":"150-500人",
+        "type":"电商",
+        "finance":"未融资",
+        "scale":"2000人以上",
         "city":"上海"
     },
     {
@@ -512,7 +512,7 @@
         "interview_comments": 209,
         "recruit_position": 71,
         "timeliness": "100%",
-        "type":"移动互联网",
+        "type":"电商",
         "finance":"C轮",
         "scale":"150-500人",
         "city":"深圳"
@@ -527,7 +527,7 @@
         "recruit_position": 30,
         "timeliness": "68%",
         "type":"移动互联网",
-        "finance":"C轮",
+        "finance":"未融资",
         "scale":"150-500人",
         "city":"上海"
     }

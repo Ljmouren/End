@@ -12,19 +12,19 @@
 						   <div v-show="noshow" class="no_collections">暂无记录</div>
 						   
 						<!--有记录的情况  -->
-						<div class="yes_collections" v-show="!noshow">
+						<div class="yes_collections" v-for='item in likesData' v-show="!noshow">
 							 <div class="collections_img">
-							 	<img :src="jianliStorage.cover_url"/>
+							 	<img :src="item.cover_url"/>
 							 </div>						 
 							 <div class="text">
-							  <p>{{jianliStorage.title}}<span>（{{jianliStorage.wage}}）</span></p>
-							  <p>{{jianliStorage.jobName}}/{{jianliStorage.address}}/{{jianliStorage.workdate}}</p>
-							  <p>{{jianliStorage.fuli}}</p>
+							  <p>{{item.title}}<span>（{{item.wage}}）</span></p>
+							  <p>{{item.jobName}}/{{item.address}}/{{item.workdate}}</p>
+							  <p>{{item.fuli}}</p>
 							 </div>							 
 							 <div class="collections_right">
-							 	<p class="time">发布时间：2019-08-15 {{jianliStorage.date}}</p>
+							 	<p class="time">发布时间：2019-08-15 {{item.date}}</p>
 							 	  <div class="collections_button">
-							 	  	<a @click="quxiao">取消收藏</a>
+							 	  	<a @click="quxiao(item)">取消收藏</a>
 							 	  	    |
 							 	  	<a>投个简历</a>
 							 	  </div>							 	
@@ -49,23 +49,35 @@ import loginPublictop from '../../components/loginPublictop.vue'
 import linkes from '../../components/linkes.vue'
 import publicfooter from '../../components/publicfooter.vue'
 export default {
+ inject: ['reload'],
   name: 'HelloWorld',
   data () {
     return {
       jianliStorage:{},
-      noshow:true
+	  noshow:true,
+	  likesData:[]
     }
   },
   methods:{
-  	quxiao(){
-  		localStorage.removeItem('DetailData1')
+  	quxiao(ele){
+  		let likesAry=JSON.parse(localStorage.getItem('likes'));
+				likesAry.forEach((item,index) => {
+					if(item.title==ele.title){
+						likesAry.splice(index,1)
+					}
+				});
+				localStorage.setItem('likes', JSON.stringify(likesAry));//更新删除后的数据
+				this.reload();
   	}
   },
   mounted(){
-  	this.jianliStorage= JSON.parse(localStorage.getItem('DetailData1'));
-  	if(this.jianliStorage){
-			this.noshow=false
-		}
+	this.likesData=JSON.parse(localStorage.getItem('likes'));//获取本地存储的数据
+	if(this.likesData) this.noshow=false;//控制数据显示
+	
+  	// this.jianliStorage= JSON.parse(localStorage.getItem('DetailData1'));
+  	// if(this.jianliStorage){
+	// 		this.noshow=false
+	// 	}
 	},
   components:{
 			loginPublictop,linkes,publicfooter

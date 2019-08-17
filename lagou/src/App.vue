@@ -18,7 +18,14 @@ export default {
   	}
   },
   mounted(){
-  	this.$router.push('./Register')
+    if(this.$store.state.isLogin==false){
+    	this.$router.push('./Register');
+    }else{
+    	this.$router.push('./index');
+    }
+    window.onbeforeunload=function(e){
+      localStorage.removeItem('likes');
+    }
   },
   methods:{
     reload (){

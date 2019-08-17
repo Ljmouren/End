@@ -9,6 +9,7 @@ import Axios from 'axios'
 import BaiDuMap from 'vue-baidu-map'
 import {store} from './store/store.js'
 import StarRating from 'vue-star-rating'
+import VueLazyload from 'vue-lazyload'
 
 import $ from 'jquery'
 import 'font-awesome/css/font-awesome.css'
@@ -20,6 +21,7 @@ Vue.config.productionTip = false
 Vue.use(BaiDuMap,{
 	ak:'6RDBj0v48E14XCWlM4mIzortREPzkuT5'
 })
+Vue.use(VueLazyload)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
