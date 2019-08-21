@@ -18,14 +18,14 @@
           <!--没有记录的情况-->
 						   <div v-show="no" class="no_collections">当前没有符合条件的投递记录</div>
 					<!--有记录的情况-->	   
-					<div  class="yes_collections"  v-show="!no">					 
+					<div  class="yes_collections"  v-show="!no" v-for='item in sendData'>					 
 							 <div class="text">
-							  <p>{{xiangqinglocalStorage.title}}<span>（{{xiangqinglocalStorage.wage}}）</span><span class="text_i"><i class="el-icon-chat-dot-round"></i></span></p>
-							  <p>{{xiangqinglocalStorage.jobName}}[{{xiangqinglocalStorage.address}}]</p>
-							  <p>使用简历：{{xiangqinglocalStorage.fuli}}</p>
+							  <p>{{item.title}}<span>（{{item.wage}}）</span><span class="text_i"><i class="el-icon-chat-dot-round"></i></span></p>
+							  <p>{{item.jobName}}[{{item.address}}]</p>
+							  <p>使用简历：{{item.fuli}}</p>
 							 </div>							 
 							 <div class="collections_right">
-							 	<p class="time">2019-08-15 {{xiangqinglocalStorage.date}} <span>投递成功<i class="el-icon-caret-bottom"></i></span></p>							 	  					 	
+							 	<p class="time">{{item.date}} <span>投递成功<i class="el-icon-caret-bottom"></i></span></p>							 	  					 	
 							 </div>
 						</div>	   
 				</div>
@@ -51,19 +51,23 @@ export default {
       arr:[{name:'投递成功'},{name:'被查看'},{name:'待沟通'},{name:'邀请面试'},{name:'不合适'},{name:'删除记录'}],
       flag: 0,
       xiangqinglocalStorage:{},
-      no:true
+      no:true,
+      sendData:[]//存放投递数据
     }
   },
   components:{
 			loginPublictop,linkes,publicfooter
 	},
 	mounted(){
-		//得到本地数据
-		this.getData();
+		//得到本地数据		
+//		this.xiangqinglocalStorage= JSON.parse(localStorage.getItem('DetailData'));
+		this.sendData=JSON.parse(localStorage.getItem('send'));//获取本地存储的数据
+		if(this.sendData) this.no=false;//控制数据显示
+		//console.log(this.sendData)
 		//当有了数据时让no_collections不显示
-		if(this.xiangqinglocalStorage){
-			this.no=false
-		}
+//		if(this.xiangqinglocalStorage){
+//			this.no=false
+//		}
 	},
   methods: {
   	dji_li(){
@@ -72,11 +76,6 @@ export default {
   		this.yes_collections=true
   		}else if(this.flag!=0){
   			this.yes_collections=false
-  		}
-  	},
-  	getData(){
-  		if(this.$store.state.isLogin==true){
-  			this.xiangqinglocalStorage= JSON.parse(localStorage.getItem('DetailData'));
   		}
   	}
   }	
@@ -90,7 +89,7 @@ a{
 	text-decoration: none;
 }
 .section-div{
-	width: 61%;
+	width: 75%;
 	height: 800px;
 	margin-left: 50%;
 	transform: translateX(-50%);

@@ -113,7 +113,7 @@
 		</div>
 		<!--middle-->
 		<!---->
-
+		<backtop></backtop>
 		<publicfooter></publicfooter>
 	</div>
 	<!--jobHome-->
@@ -125,6 +125,7 @@
 	import logintop from '../../components/loginPublictop'
 	import publictop from '../../components/publictop'
 	import publicfooter from '../../components/publicfooter'
+	import backtop from '../tang/backTop'
 	export default {
 		name: 'HelloWorld',
 		data() {
@@ -143,7 +144,8 @@
 			publictop,
 			publicfooter,
 			filtrate,
-			logintop
+			logintop,
+			backtop
 		},
 		mounted() {
 			this.getJobDate();

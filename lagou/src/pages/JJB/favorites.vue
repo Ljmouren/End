@@ -17,7 +17,7 @@
 							 	<img :src="item.cover_url"/>
 							 </div>						 
 							 <div class="text">
-							  <p>{{item.title}}<span>（{{item.wage}}）</span></p>
+							  <p @click="c_xq(item.no)" :id="item.no">{{item.title}}<span>（{{item.wage}}）</span></p>
 							  <p>{{item.jobName}}/{{item.address}}/{{item.workdate}}</p>
 							  <p>{{item.fuli}}</p>
 							 </div>							 
@@ -68,6 +68,14 @@ export default {
 				});
 				localStorage.setItem('likes', JSON.stringify(likesAry));//更新删除后的数据
 				this.reload();
+  	},
+  	c_xq(ids){
+		this.$router.push({
+					path: '/xiangqing',
+					query: {
+						inids: ids
+					},
+			})
   	}
   },
   mounted(){
@@ -92,10 +100,9 @@ a{
 	text-decoration: none;
 }
 .section-div{
-	width: 61%;
+	width: 75%;
 	height: 800px;
-	margin-left: 50%;
-	transform: translateX(-50%);
+	margin: 0 auto;
 	position: relative;
 }
 .left-div {
@@ -207,10 +214,9 @@ a{
 }
 .yes_collections .collections_button{
 margin-top: 27px;
-margin-left: 24px;
 position: absolute;
-bottom: 10px;
-right: 10px;
+right: 5px;
+bottom: 6px;
 }
 .yes_collections .collections_button a{
 	color: #2cab8e;

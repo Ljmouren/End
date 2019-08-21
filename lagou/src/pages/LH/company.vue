@@ -45,7 +45,7 @@
 				logintop
 			},
 			computed: {
-				fn: function() {
+				fn(){
 					this.isLogin = this.$store.state.isLogin
 				}
 			}

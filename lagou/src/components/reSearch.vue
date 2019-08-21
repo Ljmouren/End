@@ -14,7 +14,7 @@
 			   </ul>
 			</div>
 			<ul v-for="(item2,index2) in arr0"  v-if="index2<7" class="yilan">
-				<li class="mohuli2">{{item2.title}}</li>	
+				<li class="mohuli2">{{item2.jobName}}</li>	
 			</ul>
 			<p class="close" @click="close0" v-if="sanl"><span>关闭</span><span>查看更多关于<i>{{content}}</i>岗位></span></p>
 		</div>

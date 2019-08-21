@@ -210,14 +210,18 @@
     		let data = {
 	    		name: this.name,
 	    		birthday: this.birthday,
-	    		sex: this.sex,
+	    		school:'桂林电子科技大学',
+	    		age: '25',
 	    		city: this.city,
+	    		edu:'大专',
 	    		phoneNum: this.phoneNum,
 	    		emailNum: this.emailNum,
 	    		studId: this.identity1 == "1"?"学生":"非学生",
 	    		isShow: false
-	    	}    			
+	    	}
+    		localStorage.setItem('basicData', JSON.stringify(data));
 			this.$emit("close", data);
+			
     	}
     	
     }

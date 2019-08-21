@@ -18,11 +18,12 @@ export default {
   	}
   },
   mounted(){
-    if(this.$store.state.isLogin==false){
-    	this.$router.push('./Register');
-    }else{
-    	this.$router.push('./index');
-    }
+	if(this.$store.state.isLogin==false){
+		this.$router.push('/Register')
+	}
+else{
+		this.$router.push('/index')
+	}
     window.onbeforeunload=function(e){
       localStorage.removeItem('likes');
     }

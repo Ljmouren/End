@@ -92,8 +92,8 @@
 					this.$router.push('/company')
 				}
 			},
-			tuichu: function() {
-				this.$store.commit('stateLogin', false);
+			tuichu(){
+				this.$store.commit('stateLogin',false);
 				this.reload()
 			},
 			goshouye() {

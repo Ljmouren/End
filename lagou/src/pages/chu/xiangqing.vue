@@ -5,10 +5,12 @@
 		<!-------------------吸顶---------------------->
 		<div id="boxFixed" :class="{'is_fixed' : isFixed}" v-show="isFixed">
 			<div class="ding">
-				<p class="ding-job">{{detailArr.title}}/ <span> 15k-25k</span></p>
+				<p class="ding-job">{{detailArr.title}}/ <span> {{detailArr.wage}}</span></p>
 				<div class="tou-2">
 					<div class="tou-2-1">
-						<p @click="shoucang()"><i class="fa fa-star-o fa-lg"></i> <span>收藏</span></p>
+						<!--<p @click="shoucang()"><i class="fa fa-star-o fa-lg"></i> <span>收藏</span></p>-->
+						<p v-show="isshoucangShow" @click="shoucang()"><i class="fa fa-star-o fa-lg"></i> <span>收藏</span></p>
+						<p v-show="!isshoucangShow" @click="shoucang2()"><i class="fa fa-star fa-lg"></i> <span>已收藏</span></p>
 
 					</div>
 					<div class="tou-2-2">
@@ -37,9 +39,12 @@
 							<p><i class="fa fa-address-card-o fa-lg"></i> 完善在线简历</p>
 						</div>
 						<div class="tou-2-2">
-							<p @click="open">投个简历</p>
+							<p>
+								<el-button class='send' type="text" @click="open">投个简历</el-button>
+							</p>
 							<p><i class="fa fa-paperclip fa-lg  fa-rotate-270"></i>上传附件简历</p>
 							<p><i class="fa fa-exclamation-triangle fa-lg"></i><i class="fa fa-weixin fa-lg"></i><i class="fa fa-jsfiddle fa-lg"></i></p>
+
 						</div>
 					</div>
 				</div>
@@ -55,8 +60,8 @@
 			<i slot="dizhia"><span>{{detailArr.address}}</span><span>-</span><span></span><span>-</span><span></span><span>-</span><span>{{detailArr.type}}</span></i>
 		</xiangMiddle>
 
-		<div class="huojiankuang" v-show="isshow" @click="change" :class="{up:ischange}"></div>
-
+		<!--<div class="huojiankuang" v-show="isshow" @click="change" :class="{up:ischange}"></div>-->
+		<backtop></backtop>
 		<!-- <xiangBottom></xiangBottom>-->
 		<publicfooter></publicfooter>
 	</div>
@@ -69,6 +74,7 @@
 	import publictop from '../../components/publictop'
 	import publicfooter from '../../components/publicfooter'
 	import logintop from '../../components/loginPublictop'
+	import backtop from '../tang/backTop'
 	export default {
 		name: 'HelloWorld',
 		data() {
@@ -78,7 +84,9 @@
 				ischange: false,
 				isLogin: false,
 				isshoucangShow: true,
-				detailArr: {}
+				detailArr: {},
+				dialogVisible: false,
+				inids:''//获取收藏页面的下标
 			}
 		},
 		components: {
@@ -87,14 +95,32 @@
 			xiangBottom,
 			publictop,
 			publicfooter,
-			logintop
+			logintop,
+			backtop
 		},
 		mounted() {
-			this.getDetailData();
-			this.setIcon();
 			window.addEventListener('scroll', this.handleScroll); // 监听滚动事件，然后用handleScroll这个方法进行相应的处理
 			window.addEventListener('scroll', this.hujianScroll)
 			this.fn
+			//收藏页面跳转
+			this.inids=this.$route.query.inids;
+			if(this.inids){
+				this.$axios.get('../../static/data/chuJob.json').then(res=>{
+				let arrlist=res.data.recommend_one;
+				for (let i=0;i<arrlist.length;i++) {
+					if(arrlist[i].no==this.inids){
+						this.isshoucangShow=false
+						this.detailArr=arrlist[i]
+					}
+				}
+			})
+			}
+			if(this.$route.query.dataObj){
+				this.detailArr = this.$route.query.dataObj;//获取上个页面传过来的数据
+			}
+			if(this.$store.state.isLogin) {
+				this.setIcon();
+			}
 		},
 
 		computed: {
@@ -110,109 +136,85 @@
 		},
 		methods: {
 			//控制收藏图标状态
-			setIcon(){
-				let currObj=this.detailArr;
-				let likesAry=JSON.parse(localStorage.getItem('likes'));
-				if(likesAry){
-					likesAry.forEach((item,index)=>{
-					if(item.title==currObj.title){
+			setIcon() {
+				let currObj = this.detailArr;
+				let likesAry = JSON.parse(localStorage.getItem('likes')) || [];
+				likesAry.forEach((item, index) => {
+					if(item.title == currObj.title) {
 						this.isshoucangShow = false;
-						console.log('1');
 					}
 				})
-				}
-				
 			},
 			//点击收藏
 			shoucang() {
-				if(this.$store.state.isLogin==true){
+				if(this.$store.state.isLogin == true) {
 					this.isshoucangShow = false;
-					let addObj=this.detailArr;//把本次要添加的数据存进addObj中	
+					let addObj = this.detailArr; //把本次要添加的数据存进addObj中	
 					// addObj.isLike=true;	
-					let likesAry=JSON.parse(localStorage.getItem('likes')) || [];//获取本地存储中的值放入likesAry 中,若不存在则给它赋一个空数组
-					if(JSON.stringify(likesAry).indexOf(JSON.stringify(addObj))==-1){
+					let likesAry = JSON.parse(localStorage.getItem('likes')) || []; //获取本地存储中的值放入likesAry 中,若不存在则给它赋一个空数组
+					if(JSON.stringify(likesAry).indexOf(JSON.stringify(addObj)) == -1) {
 						//判断本地存储中是否已存在当前要添加的数据
 						likesAry.push(addObj);
 					}
 					localStorage.setItem('likes', JSON.stringify(likesAry));
-				}else{
-				this.$confirm('点击确定将跳转到注册页面,是否继续？', '未登录', {
-						distinguishCancelAndClose: true,
-						confirmButtonText: '确定',
-						cancelButtonText: '取消'
-					})
-					.then(() => {
-						this.$router.push('/Register')
-					})
-					.catch(action => {
-						this.$router.push('/xiangqing')
-					});
-				}		
+				}
 			},
 			//取消收藏
 			shoucang2() {
 				this.isshoucangShow = true;
-				let delObj=this.detailArr;//获取本次要取消收藏的数据存进delObj中				
-				let likesAry=JSON.parse(localStorage.getItem('likes'));
-				if(likesAry){
-					likesAry.forEach((item,index) => {
-					if(item.title==delObj.title){
-						likesAry.splice(index,1)
+				let delObj = this.detailArr; //获取本次要取消收藏的数据存进delObj中				
+				let likesAry = JSON.parse(localStorage.getItem('likes'));
+				likesAry.forEach((item, index) => {
+					if(item.title == delObj.title) {
+						likesAry.splice(index, 1)
 					}
 				});
-				localStorage.setItem('likes', JSON.stringify(likesAry));//更新删除后的数据
-				// console.log('删除后：',likesAry)		
-				}
+				localStorage.setItem('likes', JSON.stringify(likesAry)); //更新删除后的数据
+				// console.log('删除后：',likesAry)				
 			},
+			//投递简历					
 			open() {
-				if(this.$store.state.isLogin==true){
-					localStorage.setItem('DetailData', JSON.stringify(this.detailArr));
-				const h = this.$createElement;
-				this.$msgbox({
-					title: '投递简历确认',
-					message: h('p', null, [
-						h('span', null, '学历、工作年限与该职位要求不匹配，确认要投递吗？ '),
-						h('i', {
-							style: 'color: teal'
-						}, )
-					]),
-					showCancelButton: true,
-					confirmButtonText: '确定投递',
-					cancelButtonText: '放弃投递',
-					beforeClose: (action, instance, done) => {
-						if(action === 'confirm') {
-							instance.confirmButtonLoading = true;
-							//		              instance.confirmButtonText = '执行中...';
-							setTimeout(() => {
-								done();
-								setTimeout(() => {
-									instance.confirmButtonLoading = false;
-								}, 100);
-							}, 1000);
-						} else {
-							done();
-						}
+				if(this.$store.state.isLogin == true) {
+					let sendObj = this.detailArr; //把本次要添加的数据存进addObj中	
+					let sendAry = JSON.parse(localStorage.getItem('send')) || []; //获取本地存储中的值放入sendAry中,若不存在则给它赋一个空数组
+					if(JSON.stringify(sendAry).indexOf(JSON.stringify(sendObj)) !== -1) {
+						//已存在当前要添加的数据
+						this.$message('请勿重复投递！！');
+					} else {
+						this.$confirm('确认要投递吗？ ', '提示', {
+							confirmButtonText: '确定',
+							cancelButtonText: '取消',
+							type: 'warning'
+						}).then(() => {							
+								//添加数据
+							sendAry.push(sendObj);
+							localStorage.setItem('send', JSON.stringify(sendAry));
+							this.$message({
+								type: 'success',
+								message: '投递成功!'
+							});
+						}).catch(() => {
+							this.$message({
+								type: 'info',
+								message: '已取消投递'
+							});
+						})
+
 					}
-				}).then(action => {
-					this.$message({
-						type: 'info',
-						message: 'action: ' + action
-					});
-				});
+
 				}
-				
 			},
 			menu() {
 				window.scrollTo(0, 0);
 			},
 
 			getDetailData() {
-				this.detailArr = this.$route.query.dataObj;//获取上个页面传过来的数据
+				
 			},
 			handleScroll() {
 				let scrollTopa = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop // 滚动条偏移量
 				let offsetTopa = document.querySelector('#boxFixed').offsetTop; // 要滚动到顶部吸附的元素的偏移量
-				this.isFixed = scrollTopa > offsetTopa ? true : false;// 如果滚动到顶部了，this.isFixed就为true
+				this.isFixed = scrollTopa > offsetTopa ? true : false; // 如果滚动到顶部了，this.isFixed就为true
 			},
 
 			change() {
@@ -250,6 +252,15 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
+<style>
+	.send {
+		padding: 0;
+	}
+	
+	.el-button--text {
+		color: white;
+	}
+</style>
 <style scoped lang="less">
 	#boxFixed {
 		width: 100%;

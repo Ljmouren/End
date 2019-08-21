@@ -23,15 +23,15 @@
 					            <p class="basic-self">
 					                <span class="basic-school"  >{{indexdata.school}} / </span>				
 					                <span class="basic-edu">{{indexdata.edu}} / </span>					
-					                <span class="basic-end-year">{{indexdata.year}} /   </span>					
+					                <span class="basic-end-year">{{indexdata.studId}} /   </span>					
 					                <span class="basic-age">{{indexdata.age}}岁</span>					
 					            </p>
 					             <p>
 						            <span class="basic-tel" >
-						                <i class="el-icon-mobile"></i><span>{{indexdata.mobile}}</span>
+						                <i class="el-icon-mobile"></i><span>{{indexdata.phoneNum}}</span>
 						            </span>
 						            <span class="basic-email" >
-						                <i class="el-icon-message"></i><span>{{indexdata.message}}</span>
+						                <i class="el-icon-message"></i><span>{{indexdata.emailNum}}</span>
 						            </span>
 					            </p>
 					        </div>
@@ -66,8 +66,7 @@
 					        </div>
 					    </div>
 					</div>
-				
-					
+									
 			   <!--教育经验-->
                 <div class="mr-templateedu-exp" id="eduExp">
 				    <div class="mr-template_title">
@@ -96,8 +95,6 @@
 				        </li>
 				    </ol>
 			    </div>
-			    
-			    
 			    <!-- 工作经历-->
 			    <div class="mr-templateedu-exp" id="eduExp">
 				    <div class="mr-template_title" id="experience">
@@ -291,23 +288,24 @@ export default {
       isShow: false,
       indexdata:
       {
-      name:'蒋建斌',
-      school:'桂林电子科技大学',
-      edu:'大专',
-      year:'学生',
-      age:'25',
-      mobile:'17678458888',
-      message:'17678458888@163.com'
+    
       },
+      basicdata:{},
       isActive: 1,
       blueColor: "3px solid #00b88d",
-      normalColor: "3px solid transparent"
+      normalColor: "3px solid transparent",
     }
   },
   components:{
 			loginPublictop,
 			publicfooter,
 			BasicInfo
+	},
+	mounted(){
+  	this.basicdata= JSON.parse(localStorage.getItem('basicData'));
+    if(this.basicdata){
+			this.indexdata=this.basicdata;
+		}
 	},
   methods:{
   	show(){
@@ -320,13 +318,11 @@ export default {
   		this.isShow = true;
   	},
   	closeDialog(config) {
-  		console.log(config)
-  		this.isShow = config.isShow; 		
-  		this.indexdata.name=config.name;
-  		this.indexdata.edu=config.city;
-  		this.indexdata.year=config.studId;
-  		this.indexdata.mobile=config.phoneNum;
-  		this.indexdata.message=config.emailNum;
+  		this.isShow = config.isShow; 
+  		this.basicdata= JSON.parse(localStorage.getItem('basicData'));
+    if(this.basicdata){
+			this.indexdata=this.basicdata;
+		}
   	},
   	changeStatus(value) {
   		this.isActive = value;
@@ -334,7 +330,9 @@ export default {
   	format(percentage) {
         return percentage === 100 ? '满' : `${percentage}%`;
     }
-  }
+  },
+  
+
 }
 </script>
 

@@ -11,7 +11,6 @@ state:{
  mutations:{
  	setPhonenum(state,num){
  		state.phonenum=num;
-
  	},
  	setpasswd(state,pwd){
  		state.passwd=pwd;

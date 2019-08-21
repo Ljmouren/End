@@ -25,7 +25,7 @@
 				<div class="leftmiddle">
 					<reSearch></reSearch>
 					<!--<img src="../../assets/goright.jpg" class="thumb" v-show="mengcen"/>-->
-					<i class="el-icon-right thumb" v-show="mengcen"/></i>
+					<i class="fa fa-hand-o-right thumb" v-show="mengcen"/></i>
 					<reimgUrl @sendshow="imgUrl"></reimgUrl>
 				</div>
 				<div class="rightmiddle">
@@ -201,13 +201,13 @@
 			transform: translateX(-5px);
 		}
 		30% {
-			transform: translateX(10px);
+			transform: translateX(6px);
 		}
 		45% {
 			transform: translateX(-8px);
 		}
 		60% {
-			transform: translateX(10px);
+			transform: translateX(6px);
 		}
 		75% {
 			transform: translateX(-8px);
@@ -303,6 +303,7 @@
 	
 	.show {
 		position: relative;
+		z-index: 200;
 	}
 	
 	.qrcode_app {
